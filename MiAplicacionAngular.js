@@ -1,3 +1,4 @@
+
 var app = angular.module('AppLogin', [])
 
 app.controller('ctrlLogin', function($scope,$http){
@@ -5,13 +6,16 @@ app.controller('ctrlLogin', function($scope,$http){
     $scope.mostrarLogin = true;
     $scope.comentarios = [];
 
+    $scope.obtenerComentarios = function(){
     $http.get("http://localhost:8080/comentarios/")
         .then(function(data){
-            console.log(data.data);
-            $scope.comentarios = data.data;
+           // console.log(data.data);
+            $scope.comentarios = data;
         
     },function(err){
+        console.log(err);
             });
+        }
 
 
 
@@ -22,9 +26,10 @@ app.controller('ctrlLogin', function($scope,$http){
     };  
 
     $scope.validarLogin = function(){
-        if($scope.rut == "19.090.388-5" & $scope.pass == "12345"){
+        if($scope.rut == "11.111.111-1" & $scope.pass == "12345"){
             $scope.mostrarError = false;
             $scope.mostrarLogin = false;
+            $scope.obtenerComentarios();
         }else{
             $scope.mostrarError = true;
             $scope.mostrarLogin = true;

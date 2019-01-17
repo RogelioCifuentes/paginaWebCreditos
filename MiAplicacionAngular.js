@@ -1,39 +1,47 @@
 
 var app = angular.module('AppLogin', [])
 
-app.controller('ctrlLogin', function($scope,$http){
+app.controller('ctrlLogin',function($scope,$http){
+
+   
+
     $scope.mostrarError = false;
     $scope.mostrarLogin = true;
     $scope.comentarios = [];
+    $scope.login = {};
 
-    $scope.obtenerComentarios = function(){
-    $http.get("http://localhost:8080/comentarios/")
-        .then(function(data){
-           // console.log(data.data);
-            $scope.comentarios = data;
-        
-    },function(err){
-        console.log(err);
-            });
+
+    
+    var form_data = $.param({
+        rut: $scope.rut,
+        password : $scope.password
+    })
+    var header_config = {
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
         }
-
-
-
-
-    $scope.user = {                               //Creando un objeto
-        nombre: $scope.rut,
-        password: $scope.pass,
-    };  
-
-    $scope.validarLogin = function(){
-        if($scope.rut == "11.111.111-1" & $scope.pass == "12345"){
-            $scope.mostrarError = false;
-            $scope.mostrarLogin = false;
-            $scope.obtenerComentarios();
-        }else{
-            $scope.mostrarError = true;
-            $scope.mostrarLogin = true;
-        }};
-
+    };
+   
+        $scope.login = function(){
+            $http({
+                method : 'GET',
+                url : "http://localhost:8080/usuarios/login?",
+                data : form_data,
+                config : header_config
+            }).then(
+                function(data){
+                 console.log(data);
+                
+   
+                },function(error){
+                    console.log($scope.rut);
+                    console.log($scope.password);
+                    console.log("error");
+                    console.log(error);
+                   
+   
+                });
+               
+            };  
 });
 

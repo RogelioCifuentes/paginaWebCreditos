@@ -1,32 +1,32 @@
 
 var app = angular.module('AppLogin', [])
 
-app.controller('ctrlLogin',function($scope,$http){
+app.controller('ctrlLogin',function($scope,$http,$sce){
 
-   
+    $scope.trustSrc = function(src) {
+        return $sce.trustAsResourceUrl(src);
+    }
 
     $scope.mostrarError = false;
     $scope.mostrarLogin = true;
-    $scope.comentarios = [];
-    $scope.login = {};
 
 
-    
-    var form_data = $.param({
-        rut: $scope.rut,
-        password : $scope.password
-    })
     var header_config = {
         headers: {
-            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            'Content-Type': 'application/json'
         }
     };
    
         $scope.login = function(){
+            var form_data = ({
+                rut: $scope.rut,
+                password : $scope.password
+            });
+
             $http({
-                method : 'GET',
-                url : "http://localhost:8080/usuarios/login?",
-                data : form_data,
+                method : 'POST',
+                url : $scope.trustSrc("http://localhost:8080/usuarios/login"),
+                data : JSON.stringify(form_data),
                 config : header_config
             }).then(
                 function(data){

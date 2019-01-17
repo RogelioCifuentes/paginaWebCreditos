@@ -28,19 +28,20 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             <input type="text" class="form-control" placeholder="11.111.111-1" name="rut" ng-model="rut" required="required" maxlength="12">                
         </div>
-        {{login.rut}}
+        
         <div> </div>
 
         <div class="input-group col-xs-4">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input type="password" class="form-control" placeholder="Pass" name="password" ng-model="password" required="required">
+            <input type="password" class="form-control" placeholder="Pass" name="password" ng-pattern = "/^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9Kk]{1}$/" ng-model="password" required="required">
         </div>
-{{login.password}}
+
         <small id="loginHelp" class="form-text text-muted"><span class="glyphicon glyphicon-asterisk"></span>Validate your login credentials.</small>
 
         <!----- Boton, con funcion login() ------>
         <div> </div>
-        <button id="submit_btn" class="btn btn-primary" ng-click="login()">Validate</button>             
+        <button id="submit_btn" class="btn btn-primary" ng-click="login()">Iniciar</button> 
+        <a id="submit_btn" class="btn" href="registro.html">Registrarse</a>            
     </div>
 
 </div>

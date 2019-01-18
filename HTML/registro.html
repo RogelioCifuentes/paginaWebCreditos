@@ -59,6 +59,12 @@
                 <input type="text" class="form-control"  placeholder="ejemplo@ejemplo.cl" ng-model="correo">
             </div>
 
+            {{mostrarError}}
+            <div class="col-md-10 col-xs-offset-4" style="padding:20px;">
+                    <div class="bg-warning col-xs-4"  ng-show="mostrarError" >
+                    {{mensaje}}
+                </div></div>
+
    <br><br><hr>
             <div  role="group" aria-label="Basic example">
                 <button type="reset" class="btn btn-secondary">Limpiar</button>
@@ -77,6 +83,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw"
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js" type="text/javascript"></script>
-    <script src="RegistroAngular.js" type=text/javascript> </script> 
+    <script src="../js/RegistroAngular.js" type=text/javascript> </script> 
 </body> 
 </html>

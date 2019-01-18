@@ -9,6 +9,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
 
     $scope.mostrarError = false;
     $scope.mostrarLogin = true;
+    $scope.mensaje = "";
 
 
     var header_config = {
@@ -31,6 +32,12 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
             }).then(
                 function(data){
                  console.log(data);
+                 if(data.data){
+                     window.location.href='inicioSesion.html'
+                 }else{
+                     $scope.mostrarError = true;
+                     $scope.mensaje = "Usuario y/o contraseña incorrectos."
+                 }
                 
    
                 },function(error){

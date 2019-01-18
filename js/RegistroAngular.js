@@ -38,16 +38,19 @@ app.controller('ctrlRegistro',function($scope,$http,$sce){
         }).then(
             function(data){
                 console.log(data);
-
-                if(data.data){
+                
+                if(data.status!=500){
                     window.location.href="login.html"
-                }else{
-                    $scope.mostrarError=true;
-                    $scope.mensaje = "Rellene todos los campos."
-
+                    
                 }
+                    
+                    
+
+                
             },function(error){
                 console.log(error)
+                $scope.mostrarError=true;
+                    $scope.mensaje = "Rellene todos los campos."
             });
         
         }};

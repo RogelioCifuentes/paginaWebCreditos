@@ -21,10 +21,10 @@ app.controller('ctrlTabla', function($scope,$http,$sce){
     $scope.generarTabla = function(){
 
         var form_data = ({
-            id_nombre : $scope.nombre,
+            idNombre : $scope.nombre,
             cae : $scope.cae,
-            gastos_asociados : $scope.gastosAsociados,
-            tasa_interes_mensual : $scope.tasaInteresMensual
+            gastosAsociados : $scope.gastosAsociados,
+            tasaInteresMensual : $scope.tasaInteresMensual
         })
 
         $http({
@@ -36,6 +36,7 @@ app.controller('ctrlTabla', function($scope,$http,$sce){
             function(data){
                 console.log(data);
                 $scope.listaBancos = data.records;
+                console.log("Hola");
                                 
             },function(error){
                 console.log(error)

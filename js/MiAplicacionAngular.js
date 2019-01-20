@@ -6,7 +6,8 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
     }
-
+    $scope.rut = "";
+    $scope.password ="";
     $scope.mostrarError = false;
     $scope.mostrarLogin = true;
     $scope.mensaje = "";
@@ -19,6 +20,13 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
     };
    
         $scope.login = function(){
+            if($scope.rut=="" || $scope.password==""){
+                $scope.mensaje = "Ingrese datos";
+                $scope.mostrarError = true;
+                return;
+
+            }else{
+
             var form_data = ({
                 rut: $scope.rut,
                 password : $scope.password
@@ -49,6 +57,6 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
    
                 });
                
-            };  
+            }};  
 });
 

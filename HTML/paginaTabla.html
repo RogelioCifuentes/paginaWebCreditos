@@ -33,9 +33,9 @@
                        </tr>
 
                        <!-- Primera fila-->
-                        <tr ng-repeat="banco in listaBancos">
+                        <tr ng-repeat="banco in bancos">
                             <!-- Num-->
-                            <td>0</td>
+                            <td>{{$index+1}}</td>
 
                             <!--Institucion-->
                             <td>{{banco.idNombre}}</td>
@@ -47,7 +47,7 @@
                             <td>{{banco.cae}}</td>
 
                             <!--Tasa de interes mensual-->
-                            <td>{{banco.tasaInteresMensual}}</td>
+                            <td>{{banco.tasaInteresMensual}}%</td>
 
                             <!--Gastos asociados-->
                             <td>{{banco.gastosAsociados}}</td>

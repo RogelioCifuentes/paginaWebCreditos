@@ -15,16 +15,17 @@ app.controller('ctrlTabla', function($scope,$http,$sce){
 
         $http.get($scope.trustSrc('http://localhost:8080/bancos/listar'),header_config)
             .then(
-            function(data){
-                console.log(data);
-                $scope.listaBancos = data;
-                console.log("Hola");
+            function(response){
+                
+                console.log(response);
+                $scope.bancos = response.data;
+            
                                 
             }),function(error){
                 console.log(error)
                 console.log("Soy un error :D")
 
             };
-        })
+        });
        
     

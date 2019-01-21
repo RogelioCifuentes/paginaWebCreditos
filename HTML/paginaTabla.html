@@ -27,7 +27,7 @@
                     <input type="number" class="form-control" placeholder="Numero de Cuotas"  ng-model="numeroCuotas" required="required">
                 </div>
 
-                <button id="submit_btn" class="btn btn-primary" ng-click="generarTabla()" >Simular</button>
+                <button id="submit_btn" class="btn btn-primary" ng-click="llamarDatos()" >Simular</button>
           
             </form>
 
@@ -62,7 +62,7 @@
                             <td ng-model="institucion">{{banco.idNombre}}</td>
 
                             <!--Valor Cuota-->
-                            <td ng-model ="cuota" name = "cuota">{{cuota}}</td>
+                            <td ng-model ="cuota" name = "cuota">{{banco.cuota}}</td>
 
                             <!--CAE-->
                             <td ng-model="cae">{{banco.cae}}</td>
@@ -77,13 +77,13 @@
                             <td ng-model = "seguroDesgravamen">$0</td>
 
                             <!--Total intereses-->
-                            <td ng-model="totalIntereses">{{totalIntereses}}</td>
+                            <td ng-model="totalIntereses">{{banco.totalIntereses}}</td>
 
                             <!--Monto bruto crédito-->
-                            <td ng-model="montoBrutoCredito">{{montoSolicitado}}+{{banco.gastosAsociados}}</td>
+                            <td ng-model="montoBrutoCredito">{{montoBrutoCredito}}</td>
 
                             <!--Costo total-->
-                            <td ng-model="costoTotal">{{costoTotal}}</td>
+                            <td ng-model="costoTotal">{{banco.costoTotal}}</td>
                         </tr>
                       
                 </table>

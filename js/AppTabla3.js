@@ -21,7 +21,7 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
     };
 
             
-    $scope.generarTabla = function(){
+    $scope.llamarDatos = function(){
 
         //SOLICITUD DE DATOS
         $http({
@@ -32,42 +32,59 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
                 console.log(response);
                 $scope.bancos = response.data;
                // $scope.tasaInteresMensual = 
-                console.log(response.tasaInteresMensual);
-               
+                console.log(response.data.tasaInteresMensual);
+                $scope.generarTabla();
                                     
             }),function(error){
                 console.log(error)
                 console.log("Soy un error :D")
             };
+    }
 
 
+    $scope.generarTabla = function(){
 
-        //FORMULA PARA GENERAR CUOTAS MENSUALES, COSTO TOTAL Y TOTAL DE INTERESES
-        
-        var ti = $scope.tasaInteresMensual/100;
+        for( var i in $scope.bancos  ){
 
-        var primero = Math.pow(1+ti,$scope.numeroCuotas)*ti;
+            var tasaInteres = $scope.bancos[i].tasaInteresMensual; 
 
-        var segundo = Math.pow(1+ti,$scope.numeroCuotas)-1;   
-
-        //CUOTA MENSUAL
-        //La formula devuelve el valor de cada cuota
-        $scope.cuota = $scope.montoSolicitado * (primero/segundo);     
-
-        //TOTAL DE INTERESES
-        //Se resta el montoBrutoCredito del costoTotal para obtener el total de intereses.
-        $scope.totalIntereses = $scope.costoTotal - $scope.montoBrutoCredito;
-
-        //COSTO TOTAL
-         //Se le da un valor a la variable costoTotal, para ser asignada a su simulacion.
-         $scope.costoTotal =  $scope.gastosAsociados + $scope.montoBrutoCredito;
+            var gastosAsociados = $scope.bancos[i].gastosAsociados;
 
 
+            $scope.montoBrutoCredito = $scope.montoSolicitado + gastosAsociados;
+
+            //COSTO TOTAL
+            $scope.bancos[i].costoTotal = parseInt(gastosAsociados + $scope.montoBrutoCredito);
+           
+            //TOTAL DE INTERESES
+            $scope.bancos[i].totalIntereses = parseInt($scope.bancos[i].costoTotal - $scope.montoBrutoCredito) 
+            
+
+             //FORMULA PARA GENERAR CUOTAS MENSUALES, COSTO TOTAL Y TOTAL DE INTERESES
+            var ti = tasaInteres/100;
+
+            var primero = Math.pow(1+ti,$scope.numeroCuotas)*ti;
+
+            var segundo = Math.pow(1+ti,$scope.numeroCuotas)-1;   
+
+            //CUOTA MENSUAL
+            //La formula devuelve el valor de cada cuota
+            $scope.bancos[i].cuota = parseInt($scope.montoSolicitado * (primero/segundo));     
+
+            
         console.log(ti);
         console.log(primero);
         console.log(segundo);
-        console.log($scope.tasaInteresMensual+" Tasa interes mensual");
+        console.log($scope.bancos[i].tasaInteresMensual+" Tasa interes mensual");
         console.log($scope.numeroCuotas+ " Numero de cuotas");
+            
+        }
+
+       
+        
+        
+
+    
     }
 
   

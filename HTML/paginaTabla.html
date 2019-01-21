@@ -26,8 +26,10 @@
             <input type="number" class="form-control" placeholder="Numero de Cuotas"  ng-model="numeroCuotas" required="required">
         </div>
 
-        <button id="submit_btn" class="btn btn-primary" ng-click="llamarDatos()" >Simular</button>
-    
+        <div>
+            <button id="submit_btn" class="btn btn-primary" ng-click="llamarDatos()" >Simular</button>
+            <button type="reset" class="btn btn-secondary">Limpiar</button>
+        </div>
     </form>
 
                 <!--TABLA-->
@@ -53,7 +55,7 @@
             
             <!-- Primera fila-->
         <tbody >
-            <tr ng-repeat="banco in bancos">
+            <tr ng-repeat="banco in bancos | orderBy:'costoTotal'" ng-class="{info:$index==0,danger:$index==9 }">
                 <!-- Num-->
                 <td>{{$index+1}}</td>
 
@@ -61,28 +63,28 @@
                 <td>{{banco.idNombre}}</td>
 
                 <!--Valor Cuota-->
-                <td>{{banco.cuota}}</td>
+                <td>{{banco.cuota | currency:'$':0}}</td>
 
                 <!--CAE-->
-                <td>{{banco.cae}}</td>
+                <td>{{banco.cae}}%</td>
 
                 <!--Tasa de interes mensual-->
-                <td>{{banco.tasaInteresMensual}}</td>
+                <td>{{banco.tasaInteresMensual}}%</td>
 
                 <!--Gastos asociados-->
-                <td>{{banco.gastosAsociados}}</td>
+                <td>{{banco.gastosAsociados | currency:'$':0}}</td>
 
                 <!--Seguro desgravamen-->
                 <td>$0</td>
 
                 <!--Total intereses-->
-                <td>{{banco.totalIntereses}}</td>
+                <td>{{banco.totalIntereses | currency:'$':0}}</td>
 
                 <!--Monto bruto crédito-->
-                <td>{{banco.montoBrutoCredito}}</td>
+                <td>{{banco.montoBrutoCredito | currency:'$':0}}</td>
 
                 <!--Costo total-->
-                <td>{{banco.costoTotal}}</td>
+                <td>{{banco.costoTotal | currency:'$':0 }}</td>
             </tr>                       
         </tbody>
     </table>

@@ -37,7 +37,7 @@ app.controller('ctrlRegistro',function($scope,$http,$sce){
             config : header_config
         }).then(
             function(data){
-                console.log(data);
+                console.log(data);              
                 
                 if(data.status!=500){
                     window.location.href="login.html"        

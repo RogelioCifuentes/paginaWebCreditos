@@ -41,7 +41,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                 function(data){
                  console.log(data);
                  if(data.data){
-                     window.location.href='inicioSesion.html'
+                     window.location.href='paginaTabla.html'
                  }else{
                      $scope.mostrarError = true;
                      $scope.mensaje = "Usuario y/o contraseña incorrectos."

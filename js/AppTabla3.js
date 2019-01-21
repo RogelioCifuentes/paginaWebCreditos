@@ -1,6 +1,6 @@
 var app = angular.module('AppTabla',[])
 
-app.controller('ctrlTabla', function($scope,$http,$sce){
+app.controller('ctrlTabla', function($scope,$http,$sce,$log){
 
     $scope.montoSolicitado = 0;
     $scope.numeroCuotas = 0;
@@ -24,11 +24,15 @@ app.controller('ctrlTabla', function($scope,$http,$sce){
     $scope.generarTabla = function(){
 
         //SOLICITUD DE DATOS
-        $http.get($scope.trustSrc('http://localhost:8080/bancos/listar'),header_config)
+        $http({
+            method : 'GET',
+            url : $scope.trustSrc('http://localhost:8080/bancos/listar'),header_config})
         
         .then(function(response){  
                 console.log(response);
                 $scope.bancos = response.data;
+               // $scope.tasaInteresMensual = 
+                console.log(response.tasaInteresMensual);
                
                                     
             }),function(error){

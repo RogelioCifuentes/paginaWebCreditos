@@ -9,87 +9,86 @@
 </head>
 <body>
 
-        <div class="panel panel-default" ng-controller="ctrlTabla">
+<div class="panel panel-default" ng-controller="ctrlTabla">
+
+            <!--FORMULARIO DATOS PARA SOLICITAR CREDITO-->
+
+    <form>
+            <!--MONTO A SOLICITAR-->
+        <div class="input-group col-xs-4">
+                <!--  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
+                <input type="number" class="form-control" placeholder="Monto Solicitado"  ng-model="montoSolicitado" required="required" maxlength="10">                
+        </div>
+            
+            <!--NUMERO DE CUOTAS-->
+        <div class="input-group col-xs-4">
+            <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>-->
+            <input type="number" class="form-control" placeholder="Numero de Cuotas"  ng-model="numeroCuotas" required="required">
+        </div>
+
+        <button id="submit_btn" class="btn btn-primary" ng-click="llamarDatos()" >Simular</button>
+    
+    </form>
+
+                <!--TABLA-->
+        
+    <div class="panel-body">
+        <p><strong>* Las comparaciones realizadas a través de esta aplicación, no constituyen ni suponen la obligación de las empresas respecto de otorgar el crédito que usted consulta.</strong></p>
+    </div>
+    
+                <!--CABECERA-->
+    <table class="table table-striped table-hover">
+            <thead>
+                    <th>Num</th>
+                    <th>Institución</th>
+                    <th>Valor Cuota</th>
+                    <th>CAE</th>
+                    <th>Tasa de interes mensual</th>
+                    <th>Gastos asociados</th>
+                    <th>Seguro desgravamen</th>
+                    <th>Total intereses</th>
+                    <th>Monto bruto crédito</th>
+                    <th>Costo total</th>
+            </thead>
+            
+            <!-- Primera fila-->
+        <tbody >
+            <tr ng-repeat="banco in bancos">
+                <!-- Num-->
+                <td>{{$index+1}}</td>
+
+                <!--Institucion-->
+                <td>{{banco.idNombre}}</td>
+
+                <!--Valor Cuota-->
+                <td>{{banco.cuota}}</td>
+
+                <!--CAE-->
+                <td>{{banco.cae}}</td>
+
+                <!--Tasa de interes mensual-->
+                <td>{{banco.tasaInteresMensual}}</td>
+
+                <!--Gastos asociados-->
+                <td>{{banco.gastosAsociados}}</td>
+
+                <!--Seguro desgravamen-->
+                <td>$0</td>
+
+                <!--Total intereses-->
+                <td>{{banco.totalIntereses}}</td>
+
+                <!--Monto bruto crédito-->
+                <td>{{banco.montoBrutoCredito}}</td>
+
+                <!--Costo total-->
+                <td>{{banco.costoTotal}}</td>
+            </tr>                       
+        </tbody>
+    </table>
 
 
-                  <!--FORMULARIO DATOS PARA SOLICITAR CREDITO-->
-
-            <form>
-                  <!--MONTO A SOLICITAR-->
-                <div class="input-group col-xs-4">
-                      <!--  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->
-                        <input type="number" class="form-control" placeholder="Monto Solicitado"  ng-model="montoSolicitado" required="required" maxlength="10">                
-                </div>
-                    
-                    <!--NUMERO DE CUOTAS-->
-                <div class="input-group col-xs-4">
-                    <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>-->
-                    <input type="number" class="form-control" placeholder="Numero de Cuotas"  ng-model="numeroCuotas" required="required">
-                </div>
-
-                <button id="submit_btn" class="btn btn-primary" ng-click="llamarDatos()" >Simular</button>
-          
-            </form>
-
-
-                
-                <div class="panel-body">
-                  <p><strong>* Las comparaciones realizadas a través de esta aplicación, no constituyen ni suponen la obligación de las empresas respecto de otorgar el crédito que usted consulta.</strong></p>
-                </div>
-              
-                <!-- Table -->
-                <tbody >
-                <table class="table table-striped table-hover">
-                        <tr>
-                                <th>Num</th>
-                                <th>Institución</th>
-                                <th>Valor Cuota</th>
-                                <th>CAE</th>
-                                <th>Tasa de interes mensual</th>
-                                <th>Gastos asociados</th>
-                                <th>Seguro desgravamen</th>
-                                <th>Total intereses</th>
-                                <th>Monto bruto crédito</th>
-                                <th>Costo total</th>
-                       </tr>
-
-                       <!-- Primera fila-->
-                        <tr ng-repeat="banco in bancos">
-                            <!-- Num-->
-                            <td>{{$index+1}}</td>
-
-                            <!--Institucion-->
-                            <td>{{banco.idNombre}}</td>
-
-                            <!--Valor Cuota-->
-                            <td>{{banco.cuota}}</td>
-
-                            <!--CAE-->
-                            <td>{{banco.cae}}</td>
-
-                            <!--Tasa de interes mensual-->
-                            <td>{{banco.tasaInteresMensual}}</td>
-
-                            <!--Gastos asociados-->
-                            <td>{{banco.gastosAsociados}}</td>
-
-                            <!--Seguro desgravamen-->
-                            <td>$0</td>
-
-                            <!--Total intereses-->
-                            <td>{{banco.totalIntereses}}</td>
-
-                            <!--Monto bruto crédito-->
-                            <td>{{banco.montoBrutoCredito}}</td>
-
-                            <!--Costo total-->
-                            <td>{{banco.costoTotal}}</td>
-                        </tr>
-                      
-                </table>
-
-            </tbody>
-              </div>
+</div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 

@@ -40,13 +40,9 @@ app.controller('ctrlRegistro',function($scope,$http,$sce){
                 console.log(data);
                 
                 if(data.status!=500){
-                    window.location.href="login.html"
-                    
+                    window.location.href="login.html"        
                 }
-                    
-                    
-
-                
+         
             },function(error){
                 console.log(error)
                 $scope.mostrarError=true;

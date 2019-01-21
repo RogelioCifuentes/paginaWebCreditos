@@ -2,14 +2,6 @@ var app = angular.module('AppTabla',[])
 
 app.controller('ctrlTabla', function($scope,$http,$sce,$log){
 
-    $scope.montoSolicitado = 0;
-    $scope.numeroCuotas = 0;
-    $scope.gastosAsociados = 0;
-    $scope.montoBrutoCredito = 0;
-    $scope.bancos = {};
-    $scope.tasaInteresMensual = 0;
-    
-
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
     }

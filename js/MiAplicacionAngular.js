@@ -38,10 +38,21 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                 data : JSON.stringify(form_data),
                 config : header_config
             }).then(
-                function(data){
-                 console.log(data);
-                 if(data.data){
-                     window.location.href='paginaTabla.html'
+                function(response){
+                 console.log(response);
+                 $scope.usuario = response.data
+                 if(response.data){
+                     if($scope.usuario.rol.idRol == 1){
+                        window.location.href='paginaTabla.html'
+                        console.log(response);
+                     }else if($scope.usuario.rol.idRol == 2){
+                        window.location.href='inicioSesion.html'
+                        console.log(response);
+                     }else if($scope.usuario.rol.idRol == 3){
+                        window.location.href='menuAdministrador.html'
+                        console.log(response);
+                     }
+                     
                  }else{
                      $scope.mostrarError = true;
                      $scope.mensaje = "Usuario y/o contraseña incorrectos."

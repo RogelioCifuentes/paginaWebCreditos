@@ -39,14 +39,11 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
         for( var i in $scope.bancos  ){
 
             var tasaInteres = $scope.bancos[i].tasaInteresMensual; 
-
             var gastosAsociados = $scope.bancos[i].gastosAsociados;
 
-
+            var NumCuotas = $scope.numeroCuotas;
             //MONTO BRUTO CREDITO
-            $scope.bancos[i].montoBrutoCredito = $scope.montoSolicitado + gastosAsociados;
-
-                    
+            $scope.bancos[i].montoBrutoCredito = (gastosAsociados + parseInt($scope.montoSolicitado));
              //FORMULA PARA GENERAR CUOTAS MENSUALES, COSTO TOTAL Y TOTAL DE INTERESES
             var ti = tasaInteres/100;
 
@@ -59,20 +56,21 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
             $scope.bancos[i].cuota = parseInt($scope.montoSolicitado * (primero/segundo));     
 
             //COSTO TOTAL
-            $scope.bancos[i].costoTotal = parseInt($scope.bancos[i].cuota*12 + $scope.bancos[i].gastosAsociados);
-            
+            $scope.bancos[i].costoTotal = parseInt(($scope.bancos[i].cuota * NumCuotas) + $scope.bancos[i].gastosAsociados);
             //TOTAL DE INTERESES    
-            $scope.bancos[i].totalIntereses = parseInt($scope.bancos[i].costoTotal - $scope.bancos[i].montoBrutoCredito)
+            $scope.bancos[i].totalIntereses = parseInt($scope.bancos[i].costoTotal - $scope.bancos[i].montoBrutoCredito);
+
         
+            console.log($scope.numeroCuotas);
+            console.log(ti + "Tasa Interes");
+            console.log(primero + "Primero");
+            console.log(segundo+ "Segundo");
+            console.log($scope.bancos[i].tasaInteresMensual+" Tasa interes mensual");
+            console.log($scope.numeroCuotas+ " Numero de cuotas");
             
         }
 
-        console.log(ti);
-        console.log(primero);
-        console.log(segundo);
-        console.log($scope.bancos[i].tasaInteresMensual+" Tasa interes mensual");
-        console.log($scope.numeroCuotas+ " Numero de cuotas");
-        
+       
         
 
     

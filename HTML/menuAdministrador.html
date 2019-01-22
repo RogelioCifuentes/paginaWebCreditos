@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
 
-    <title>Crear Usuarios</title>
+    <title>Admin home</title>
 </head>
 <body>
 
@@ -111,20 +111,40 @@
             {{mensaje}}
         </div></div></div>
 </div>  
+
+
+ <!--SETEAR CAE, INTERES Y GASTOS ASOCIADOS-->
+
+    <form>
+        <h3>Actualizar datos de bancos</h3>
+        <div>
+            <input type ="name" class="form-control" placeholder="Nombre Banco" ng-model="idNombre" required/>    
+        </div>
+
+        <div>
+            <input type ="number" min="0" step=".01" class ="form-control" placeholder="CAE ej: '23.4'" ng-model="cae">
+        </div>
+
+        <div>
+            <input type = "number" min="0" step=".01" class="form-control" placeholder="Tasa de Interes ej: '1.3'" ng-model="tasaInteresMensual">
+        </div>
+
+        <div>
+            <input type ="number" min="0" class="form-control" placeholder="Gastos asociados" ng-model="gastosAsociados">
+        </div>
+            
+        <div>
+            <button type="submit" class="btn btn-primary" ng-click="actualizarDatos()">Actualizar</button>
+            <div ng-show = "mostrarMensaje">{{mensaje}}</div>
+        </div>
+
+
+    </form>
+
+
+
+
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

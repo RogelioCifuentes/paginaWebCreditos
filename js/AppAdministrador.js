@@ -107,6 +107,45 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
             },function(error){
 
             });
+        }
 
-            
-}});
+        $scope.actualizarDatos = function(){
+
+            var form_data = ({
+                idNombre : $scope.idNombre,
+                cae : $scope.cae,
+                tasaInteresMensual : $scope.tasaInteresMensual,
+                gastosAsociados : $scope.gastosAsociados
+            });
+    
+            //METODO PUT PARA ACTUALIZAR CAE, TASA INTERES Y GASTOS ASOCIADOS SEGUN UN ID
+            $http({
+                method : 'PUT',
+                url : $scope.trustSrc("http://localhost:8080/bancos/setear"),
+                data : JSON.stringify(form_data),
+                config : header_config  
+            }).then(
+                function(response){
+                    console.log(response);
+                    if(response.data){
+                        $scope.mensaje = "Datos actualizados correctamente";
+                        $scope.mostrarMensaje = true;
+                        console.log($scope.cae);
+                        console.log($scope.gastosAsociados);
+                        console.log($scope.tasaInteresMensual)
+                        console.log($scope.idNombre);
+                        
+                    }
+                    
+    
+                },function(error){
+                    console.log(error);
+    
+                });
+            }
+    
+
+
+
+
+});

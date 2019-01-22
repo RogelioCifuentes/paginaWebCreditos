@@ -91,7 +91,7 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
         });
 
         $http({
-            method : 'POST',
+            method : 'PUT',
             url : $scope.trustSrc("http://localhost:8080/usuarios/registrarEjecutivo"),
             data : JSON.stringify(form_data),
             config : header_config  
@@ -144,8 +144,4 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
                 });
             }
     
-
-
-
-
 });

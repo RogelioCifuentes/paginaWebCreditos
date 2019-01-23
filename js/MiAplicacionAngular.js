@@ -3,6 +3,8 @@ var app = angular.module('AppLogin', [])
 
 app.controller('ctrlLogin',function($scope,$http,$sce){
 
+
+    
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
     }
@@ -15,6 +17,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
     
 
 
+     
     var header_config = {
         headers: {
             'Content-Type': 'application/json'
@@ -41,10 +44,11 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                 config : header_config
             }).then(
                 function(response){
-                 console.log(response);
+                 console.log(response.nombre);
                  $scope.usuario = response.data
                  if(response.data){
                      //SI ES USUARIO NORMAL LO REDIRIGE A LA TABLA PARA SIMULAR
+                     
                      if($scope.usuario.rol.idRol == 3){
                         window.location.href='paginaTabla.html'
                         console.log(response);
@@ -60,6 +64,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                         console.log($scope.nombreUsuario);
 
                         //SI ES ADMINISTRADOR LO ENVIA A SU PAG
+                        console.log(response);
                      }else if($scope.usuario.rol.idRol == 1){
                         window.location.href='menuAdministrador.html'
                         console.log(response);

@@ -5,14 +5,27 @@
     <title>Creditos</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css.css">
     
 
 
 </head>
 <body style="background: #ebebeb;" >
 
-    <div class = "container" ng-controller="ctrlLogin">
-        
+    <div class = "container-fluid" ng-controller="ctrlLogin">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <a class="navbar-brand" href="Portada.html">Inicio</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+                </div>
+            </div>
+        </nav> 
        
 <!-- Login -->
 <div align="center" class="container" ng-show ="mostrarLogin">
@@ -50,9 +63,13 @@
     </div>
     
 
-    </div>
-    </div>
-    </div>
+
+</div>
+<footer>
+    <p style="color:red" class="text-center">Todos los Derechos Reservados</p>
+    <p style="color:red" class="text-center">(Componentes del footer)</p>
+</footer>
+
 
 
                     

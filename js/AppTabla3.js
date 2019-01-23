@@ -79,10 +79,10 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
     $scope.Ocultar = false;
     $scope.MostrarOtros = function(param){
         if(param == "show"){
-            $scope.Mostrar = false;
+            $scope.Mostrar = true;
             $scope.Ocultar = true;
         }else if(param == "hide"){
-            $scope.Mostrar = true;
+            $scope.Mostrar = false;
             $scope.Ocultar = false;
         }else{
             $scope.Mostrar = true;

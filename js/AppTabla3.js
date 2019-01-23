@@ -32,6 +32,27 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
             };
     }
 
+    $scope.traerBanco = function(){
+      
+        //SOLICITUD DE DATOS
+        $http({
+            method : 'PUT',
+            url : $scope.trustSrc('http://localhost:8080/bancos/banco'),
+            data : JSON.stringify({idNombre : $scope.nombre}),
+            config : header_config
+        })
+        
+        .then(function(response){  
+              console.log(response); 
+          
+                //CREAR METODO QUE ME ARME UN DIALOGO, ESPECIFICANDO EL MONTO DEL CREDITO, LAS CUOTAS Y EL INTERES MENSUAL, OBTENIDO DE ESTA FUNCION.
+                //$scope.generarTabla();
+                                    
+            }),function(error){
+                console.log(error)
+            };
+    }
+
 
     $scope.generarTabla = function(){
 

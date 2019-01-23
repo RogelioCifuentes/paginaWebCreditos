@@ -13,6 +13,8 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
     $scope.mostrarError = false;
     $scope.mostrarLogin = true;
     $scope.mensaje = "";
+    $scope.nombreUsuario ="";
+    
 
 
      

@@ -10,7 +10,21 @@
 <body>
 
 <div class="container" ng-controller="ctrlTabla">
-
+    
+        <div class = "container-fluid" ng-controller="ctrlTabla">
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                        <a class="navbar-brand" href="Portada.html">Inicio</a>
+                        </div>
+                        <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                </nav>
             <!--FORMULARIO DATOS PARA SOLICITAR CREDITO-->
 
     <form method="post" class="form-horizontal" role="form">
@@ -66,8 +80,9 @@
  
         <div class="row">
             <button id="submit_btn" class="btn btn-primary " ng-click="llamarDatos()" >Simular</button>
-            <button type="reset" class="btn btn-secondary" ng-click="MostrarOtros('hide')" >Limpiar</button>   
-            <button type="button" class="btn btn-success btn-sm" ng-click="MostrarOtros('show')"">Personalizar Mi Credito</button>
+            <input type="text" ng-model ="nombre">
+            <button type="reset" class="btn btn-secondary" ng-click=traerBanco() >Limpiar</button>   
+            <button type="button" class="btn btn-success btn-sm" ng-click="MostrarOtros('show')">Personalizar Mi Credito</button>
         </div>
     </form>
 

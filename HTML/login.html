@@ -12,6 +12,8 @@
 </head>
 <body style="background: #ebebeb;" >
 
+
+    <!--Barra de arriba-->
     <div class = "container-fluid" ng-controller="ctrlLogin">
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
@@ -27,32 +29,34 @@
             </div>
         </nav> 
        
-<!-- Login -->
+                     <!-- Login -->
 <div align="center" class="container" ng-show ="mostrarLogin">
     <h1  class="text-primary">Simulador de Creditos</h1>
-    <hr />
+    <hr/>
 
-    <div ng-app="app" ng-controller="ctrlLogin" style="padding:40px;">
-        <h3 class="text-warning" >Iniciar Sesion</h3>
-        <div> </div><br>
+    <div style="padding:40px;">
+        <h3 class="text-warning" >Iniciar Sesion</h3><br>
 
         <!----- Informacion de login ------>
+        <!--RUT-->
         <div class="input-group col-xs-4">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             <input type="text" class="form-control" placeholder="11.111.111-1" name="rut" ng-pattern = "/^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9Kk]{1}$/"  ng-model="rut" required="required" maxlength="12">                
         </div>
-        
-        
-
+             
+        <!--PASSWORD-->
         <div class="input-group col-xs-4">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
             <input type="password" class="form-control" placeholder="Pass" name="password" ng-model="password" required="required">
         </div>
 
+
+        <!--Mensaje de error-->
         <div class="col-md-10 col-xs-offset-4" style="padding:20px;">
             <div class="bg-warning col-xs-4"  ng-show="mostrarError" >
             {{mensaje}} 
-        </div></div>
+            </div>
+        </div>
 
         <br>
 
@@ -65,6 +69,8 @@
 
 
 </div>
+
+
 <footer>
     <p style="color:red" class="text-center">Todos los Derechos Reservados</p>
     <p style="color:red" class="text-center">(Componentes del footer)</p>
@@ -76,8 +82,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js" type ="text/javascript"></script>
-    <script src="../js/MiAplicacionAngular.js" type = text/javascript></script>
-    <script src="../js/ngStorage.js" type = text/javascript></script>
-    <script src="../js/localStorage.js" type = text/javascript></script>
+    <script src="../js/AppLogin.js" type = text/javascript></script>
 </body>
 </html>

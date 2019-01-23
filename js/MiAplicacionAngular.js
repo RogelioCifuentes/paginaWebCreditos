@@ -42,36 +42,28 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                 config : header_config
             }).then(
                 function(response){
-                 console.log(response.nombre);
                  $scope.usuario = response.data
                  if(response.data){
                      
-                     if($scope.usuario.rol.idRol == 3){
+                     if($scope.usuario.rol.idRol == 3){                           //Rol Usuario comun, redirige a la tabla de simulacion.
                         window.location.href='paginaTabla.html'
-                        console.log(response);
-                     }else if($scope.usuario.rol.idRol == 2){
+                     
+                     }else if($scope.usuario.rol.idRol == 2){                     //Rol Ejecutivo, redirige a nada en especial aun.
                         window.location.href='inicioSesion.html'
-                        console.log(response);
-                     }else if($scope.usuario.rol.idRol == 1){
+                        
+                     }else if($scope.usuario.rol.idRol == 1){                     //Rol Admin, se redirige a su panel de control.
                         window.location.href='menuAdministrador.html'
-                        console.log(response);
+                        
                      }
                      
                  }else{
                      $scope.mostrarError = true;
                      $scope.mensaje = "Usuario y/o contraseña incorrectos."
-                 }
-                
-   
+                    }  
                 },function(error){
-                    console.log($scope.rut);
-                    console.log($scope.password);
-                    console.log("error");
                     console.log(error);
-                   
-   
-                });
-               
-            }};  
+                }); 
+            }};
+              
 });
 

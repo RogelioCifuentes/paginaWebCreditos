@@ -15,10 +15,10 @@
 
     <form method="post" class="form-horizontal" role="form">
             <!--MONTO A SOLICITAR-->
-        <div class="form-group">
-                <label for="MontoCredito" class="col-sm-5 control-label">Monto del Credito</label>
-            <div class="col-sm-3">
-                <select class="change form-control" tabindex="1" type="number" class="form-control" placeholder="Monto Solicitado"  ng-model="montoSolicitado" required="required" maxlength="10">
+        <div class="form-group" ng-show="Mostrar">
+                <label for="MontoCredito" class="col-md-2 control-label">Monto del Credito</label>
+            <div class="col-md-3">
+                <select  class="change form-control" tabindex="1" type="number" class="form-control" placeholder="Monto Solicitado"  ng-model="montoSolicitado" required="required" maxlength="10">
                     <option value=''>Monto a Solicitar</option>
                     <option value="1000000">$1.000.000</option>
                     <option value="2000000">$2.000.000</option>
@@ -29,37 +29,45 @@
                     <option value="7000000">$7.000.000</option>
                     <option value="8000000">$8.000.000</option>
                     <option value="9000000">$9.000.000</option>
+                    <option value="10000000">$10.000.000</option>
                 </select>
-            </div>    <!--  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->                
+            </div>    <!--  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->  
         </div>
             
             <!--NUMERO DE CUOTAS-->
-        <div class="form-group">
+        <div class="form-group" ng-show="Mostrar">
             <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>-->
-                <label for="Cuotas" class="col-sm-5 control-label">Numero de Cuotas</label>
-            <div class="col-sm-3">
-                <select type="number" class="change form-control" placeholder="Numero de Cuotas"  ng-model="numeroCuotas" required="required">
+                <label for="Cuotas" class="col-md-2 control-label">Numero de Cuotas</label>
+            <div class="col-md-3">
+                <select class="form-control" placeholder="Numero de Cuotas" ng-model="numeroCuotas" required="required">
                     <option value=''>Cantidad de Cuotas</option>
                     <option value="1">1 Cuota</option>
-                    <option value="2">2 Cuotas</option>
                     <option value="3">3 Cuotas</option>
-                    <option value="4">4 Cuotas</option>
-                    <option value="5">5 Cuotas</option>
                     <option value="6">6 Cuotas</option>
-                    <option value="7">7 Cuotas</option>
-                    <option value="8">8 Cuotas</option>
                     <option value="9">9 Cuotas</option>
-                    <option value="10">10 Cuotas</option>
-                    <option value="11">11 Cuotas</option>
                     <option value="12">12 Cuotas</option>
+                    <option value="24">24 Cuotas</option>
+                    <option value="36">36 Cuotas</option>
+                    <option value="48">48 Cuotas</option>
+                    <option value="60">60 Cuotas</option>
+                    <option value="72">72 Cuotas</option>
                 </select>
             </div>
-                
         </div>
 
-        <div>
-            <button id="submit_btn" class="btn btn-primary" ng-click="llamarDatos()" >Simular</button>
-            <button type="reset" class="btn btn-secondary">Limpiar</button>
+        <div class="form-group" ng-show="Ocultar">
+            <label for="mon" class="col-md-2 control-label">Ingrese Monto</label>
+            <input type="number" class="form control col-xs-2" placeholder="Ingrese Monto"  ng-model="montoSolicitado" required="required">
+        </div>
+        <div class="form-group" ng-show="Ocultar">
+            <label for="cuo" class="col-md-2 control-label">Ingrese Cuotas</label>
+            <input type="number" class="form control col-xs-2" placeholder="Ingrese Cuotas"  ng-model="numeroCuotas" required="required">
+        </div>
+ 
+        <div class="row">
+            <button id="submit_btn" class="btn btn-primary " ng-click="llamarDatos()" >Simular</button>
+            <button type="reset" class="btn btn-secondary" ng-click="MostrarOtros('hide')" >Limpiar</button>   
+            <button type="button" class="btn btn-success btn-sm" ng-click="MostrarOtros('show')"">Personalizar Mi Credito</button>
         </div>
     </form>
 

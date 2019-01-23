@@ -11,6 +11,8 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
     $scope.mostrarError = false;
     $scope.mostrarLogin = true;
     $scope.mensaje = "";
+    $scope.nombreUsuario ="";
+    
 
 
     var header_config = {
@@ -42,13 +44,23 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                  console.log(response);
                  $scope.usuario = response.data
                  if(response.data){
-                     if($scope.usuario.rol.idRol == 1){
+                     //SI ES USUARIO NORMAL LO REDIRIGE A LA TABLA PARA SIMULAR
+                     if($scope.usuario.rol.idRol == 3){
                         window.location.href='paginaTabla.html'
                         console.log(response);
+                       
+                        //SI ES USUARIO EJECUTIVO LO REDIRIGE A SU PAG
                      }else if($scope.usuario.rol.idRol == 2){
                         window.location.href='inicioSesion.html'
-                        console.log(response);
-                     }else if($scope.usuario.rol.idRol == 3){
+
+                        var nombreUsuario2 = $scope.usuario.nombre;
+                        $scope.nombreUsuario = response.data.nombre;
+                        console.log(response.data.nombre);
+                        console.log(nombreUsuario2);
+                        console.log($scope.nombreUsuario);
+
+                        //SI ES ADMINISTRADOR LO ENVIA A SU PAG
+                     }else if($scope.usuario.rol.idRol == 1){
                         window.location.href='menuAdministrador.html'
                         console.log(response);
                      }

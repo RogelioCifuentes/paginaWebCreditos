@@ -6,7 +6,14 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
     $scope.mostrarFormularioEjecutivo = false;
     $scope.mostrarFormularioEjecutivo = false;
     $scope.mostrarMensaje = false;
+    $scope.mostrarMensaje1 = false;
+    $scope.mostrarMensaje2 = false;
     $scope.mensaje = "";
+    $scope.mensaje2= "";
+    $scope.mensaje3= "";
+    $scope.cae = 0;
+    $scope.gastosAsociados = 0;
+    $scope.tasaInteresMensual = 0;
 
 
 
@@ -99,8 +106,8 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
             function(response){
                 console.log(response);
                 if(response.data){
-                    $scope.mensaje = "Ejecutivo registrado exitosamente";
-                    $scope.mostrarMensaje = true;
+                    $scope.mensaje1 = "Ejecutivo registrado exitosamente";
+                    $scope.mostrarMensaje1 = true;
                 }
                 
 
@@ -128,8 +135,8 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
                 function(response){
                     console.log(response);
                     if(response.data){
-                        $scope.mensaje = "Datos actualizados correctamente";
-                        $scope.mostrarMensaje = true;
+                        $scope.mensaje2 = "Datos actualizados correctamente";
+                        $scope.mostrarMensaje2 = true;
                         console.log($scope.cae);
                         console.log($scope.gastosAsociados);
                         console.log($scope.tasaInteresMensual)

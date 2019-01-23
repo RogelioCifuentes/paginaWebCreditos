@@ -16,8 +16,8 @@
     <form method="post" class="form-horizontal" role="form">
             <!--MONTO A SOLICITAR-->
         <div class="form-group">
-                <label for="MontoCredito" class="col-sm-5 control-label">Monto del Credito</label>
-            <div class="col-sm-3">
+                <label for="MontoCredito" class="col-md-2 control-label">Monto del Credito</label>
+            <div class="col-md-2">
                 <select class="change form-control" tabindex="1" type="number" class="form-control" placeholder="Monto Solicitado"  ng-model="montoSolicitado" required="required" maxlength="10">
                     <option value=''>Monto a Solicitar</option>
                     <option value="1000000">$1.000.000</option>
@@ -30,15 +30,16 @@
                     <option value="8000000">$8.000.000</option>
                     <option value="9000000">$9.000.000</option>
                 </select>
-            </div>    <!--  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->                
+            </div>    <!--  <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span> -->      
+                <button type="button" class="btn btn-success">Otro Monto</button>          
         </div>
             
             <!--NUMERO DE CUOTAS-->
         <div class="form-group">
             <!-- <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>-->
-                <label for="Cuotas" class="col-sm-5 control-label">Numero de Cuotas</label>
-            <div class="col-sm-3">
-                <select type="number" class="change form-control" placeholder="Numero de Cuotas"  ng-model="numeroCuotas" required="required">
+                <label for="Cuotas" class="col-md-2 control-label">Numero de Cuotas</label>
+            <div class="col-md-2">
+                <select type="number" class="change form-control " placeholder="Numero de Cuotas"  ng-model="numeroCuotas" required="required">
                     <option value=''>Cantidad de Cuotas</option>
                     <option value="1">1 Cuota</option>
                     <option value="2">2 Cuotas</option>
@@ -54,12 +55,12 @@
                     <option value="12">12 Cuotas</option>
                 </select>
             </div>
-                
+                <button type="button" class="btn btn-success">Otras Cuotas</button>    
         </div>
 
         <div>
-            <button id="submit_btn" class="btn btn-primary" ng-click="llamarDatos()" >Simular</button>
-            <button type="reset" class="btn btn-secondary">Limpiar</button>
+            <button id="submit_btn" class="btn btn-primary " ng-click="llamarDatos()" >Simular</button>
+            <button type="reset" class="btn btn-secondary " >Limpiar</button>
         </div>
     </form>
 

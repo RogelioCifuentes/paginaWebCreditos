@@ -29,7 +29,6 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
                                     
             }),function(error){
                 console.log(error)
-                console.log("Soy un error :D")
             };
     }
 

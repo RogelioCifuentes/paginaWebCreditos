@@ -42,32 +42,34 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                 url : $scope.trustSrc("http://localhost:8080/usuarios/login"),
                 data : JSON.stringify(form_data),
                 config : header_config
-            }).then(
-                function(response){
-                 console.log(response.nombre);
-                 $scope.usuario = response.data
+            }).then(function(response){              
+                console.log(response.data); 
+
                  if(response.data){
+                     //ALMACENAR INFO EN STORAGE
+                    var username = response.data.nombre;
+                    var rol = response.data.rol;
+                    window.localStorage.setItem("usuario",username);
+                    window.localStorage.setItem("rol",rol.idRol);
                      //SI ES USUARIO NORMAL LO REDIRIGE A LA TABLA PARA SIMULAR
-                     
-                     if($scope.usuario.rol.idRol == 3){
+                     if(rol.idRol == 3){
                         window.location.href='paginaTabla.html'
                         console.log(response);
-                       
+                        console.log(localStorage.getItem("usuario"));
+                        console.log(localStorage.getItem("rol"));
                         //SI ES USUARIO EJECUTIVO LO REDIRIGE A SU PAG
-                     }else if($scope.usuario.rol.idRol == 2){
-                        window.location.href='inicioSesion.html'
-
-                        var nombreUsuario2 = $scope.usuario.nombre;
-                        $scope.nombreUsuario = response.data.nombre;
-                        console.log(response.data.nombre);
-                        console.log(nombreUsuario2);
-                        console.log($scope.nombreUsuario);
-
-                        //SI ES ADMINISTRADOR LO ENVIA A SU PAG
+                     }else if(rol.idRol == 2){    
+                        window.location.href='inicioSesion.html'    
                         console.log(response);
-                     }else if($scope.usuario.rol.idRol == 1){
+                        console.log(localStorage.getItem("usuario"));
+                        console.log(localStorage.getItem("rol"));
+                    
+                        //SI ES ADMINISTRADOR LO ENVIA A SU PAG
+                     }else if(rol.idRol == 1){
                         window.location.href='menuAdministrador.html'
                         console.log(response);
+                        console.log(localStorage.getItem("usuario"));
+                        console.log(localStorage.getItem("rol"));
                      }
                      
                  }else{
@@ -77,12 +79,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                 
    
                 },function(error){
-                    console.log($scope.rut);
-                    console.log($scope.password);
-                    console.log("error");
                     console.log(error);
-                   
-   
                 });
                
             }};  

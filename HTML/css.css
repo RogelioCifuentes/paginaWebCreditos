@@ -1,0 +1,22 @@
+
+html,body{
+    background-color: whitesmoke;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+
+footer{
+    position: auto;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+
+.container{
+    height: 100%;
+    align-content: center;
+}

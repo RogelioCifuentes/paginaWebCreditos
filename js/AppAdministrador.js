@@ -11,6 +11,9 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
     $scope.mensaje = "";
     $scope.mensaje2= "";
     $scope.mensaje3= "";
+    $scope.cae = 0;
+    $scope.gastosAsociados = 0;
+    $scope.tasaInteresMensual = 0;
 
 
 

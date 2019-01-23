@@ -29,7 +29,6 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
                                     
             }),function(error){
                 console.log(error)
-                console.log("Soy un error :D")
             };
     }
 
@@ -76,8 +75,20 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
     
     }
 
-  
-
+    $scope.Mostrar = true;
+    $scope.Ocultar = false;
+    $scope.MostrarOtros = function(param){
+        if(param == "show"){
+            $scope.Mostrar = true;
+            $scope.Ocultar = true;
+        }else if(param == "hide"){
+            $scope.Mostrar = false;
+            $scope.Ocultar = false;
+        }else{
+            $scope.Mostrar = true;
+            $scope.Ocultar = false;
+        }
+    }
 });
         
 

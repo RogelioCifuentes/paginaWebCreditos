@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="AppLogin">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
     <title>Document</title>
 </head>
-<body>
+<body ng-controller="ctrlLogin">
     
-    <h1>HOLA EJECUTIVO COMOE STAS</h1>
+    <!--Saludo de bienvenida a un ejecutivo-->
+    <p> HOLA {{nombre}}</p>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+    <script src="../js/MiAplicacionAngular.js" type = text/javascript></script>
 </body>
 </html>

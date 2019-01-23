@@ -42,22 +42,6 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                 url : $scope.trustSrc("http://localhost:8080/usuarios/login"),
                 data : JSON.stringify(form_data),
                 config : header_config
-<<<<<<< HEAD
-            }).then(
-                function(response){
-                 $scope.usuario = response.data
-                 if(response.data){
-                     
-                     if($scope.usuario.rol.idRol == 3){                           //Rol Usuario comun, redirige a la tabla de simulacion.
-                        window.location.href='paginaTabla.html'
-                     
-                     }else if($scope.usuario.rol.idRol == 2){                     //Rol Ejecutivo, redirige a nada en especial aun.
-                        window.location.href='inicioSesion.html'
-                        
-                     }else if($scope.usuario.rol.idRol == 1){                     //Rol Admin, se redirige a su panel de control.
-                        window.location.href='menuAdministrador.html'
-                        
-=======
             }).then(function(response){              
                 console.log(response.data); 
 
@@ -86,23 +70,18 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                         console.log(response);
                         console.log(localStorage.getItem("usuario"));
                         console.log(localStorage.getItem("rol"));
->>>>>>> 967bdbd8890ab8a56633df3c885ff4d5814403d9
                      }
                      
                  }else{
                      $scope.mostrarError = true;
                      $scope.mensaje = "Usuario y/o contraseña incorrectos."
-                    }  
+                 }
+                
+   
                 },function(error){
                     console.log(error);
-<<<<<<< HEAD
-                }); 
-            }};
-              
-=======
                 });
                
             }};  
->>>>>>> 967bdbd8890ab8a56633df3c885ff4d5814403d9
 });
 

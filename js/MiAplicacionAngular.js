@@ -3,6 +3,8 @@ var app = angular.module('AppLogin', [])
 
 app.controller('ctrlLogin',function($scope,$http,$sce){
 
+
+    
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
     }
@@ -13,6 +15,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
     $scope.mensaje = "";
 
 
+     
     var header_config = {
         headers: {
             'Content-Type': 'application/json'
@@ -39,16 +42,17 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                 config : header_config
             }).then(
                 function(response){
-                 console.log(response);
+                 console.log(response.nombre);
                  $scope.usuario = response.data
                  if(response.data){
-                     if($scope.usuario.rol.idRol == 1){
+                     
+                     if($scope.usuario.rol.idRol == 3){
                         window.location.href='paginaTabla.html'
                         console.log(response);
                      }else if($scope.usuario.rol.idRol == 2){
                         window.location.href='inicioSesion.html'
                         console.log(response);
-                     }else if($scope.usuario.rol.idRol == 3){
+                     }else if($scope.usuario.rol.idRol == 1){
                         window.location.href='menuAdministrador.html'
                         console.log(response);
                      }

@@ -69,7 +69,7 @@
     <div class ="form-group" ng-show="Mostrar">   
         <label >Simular un banco</label>
         <div class="col-md-3">
-            <select class="form-control" ng-model ="nombre" required>
+            <select class="form-control" ng-model ="nombre">
                 <option value =''>Elegir Banco</option>
                 <option value="Banco Santander">Banco Santander</option>
                 <option value="Banco Consorcio">Banco Consorcio</option>
@@ -106,7 +106,7 @@
                                 
 
                             <!--INFO DEL CREDITO PERSONALIZADO-->
-        <div ng-show="mostrarTabla">
+        <div ng-show="mostrarInformacionPersonalizada">
             <p>Su credito solicitado por un monto de: ${{montoSolicitado}}</p>
             <p>En la institucion: {{nombreBanco}}</p>
             <p>Tiene un costo total de: ${{costoTotal}}</p>
@@ -124,7 +124,7 @@
     </div>
     
                                <!--CABECERA-->
-    <table class="table table-striped table-hover">
+    <table ng-show = "mostrarTabla" class="table table-striped table-hover">
             <thead>
                     <th>Num</th>
                     <th>Institución</th>

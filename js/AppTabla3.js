@@ -3,6 +3,7 @@ var app = angular.module('AppTabla',[])
 app.controller('ctrlTabla', function($scope,$http,$sce,$log){
 
     $scope.mostrarTabla = false;
+    $scope.mostrarInformacionPersonalizada = false;
 
 
     $scope.trustSrc = function(src) {
@@ -17,7 +18,6 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
 
             
     $scope.llamarDatos = function(){
-
         //SOLICITUD DE DATOS
         $http({
             method : 'GET',
@@ -71,7 +71,7 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
             //TOTAL INTERESES
             $scope.totalIntereses = parseInt($scope.costoTotal - $scope.montoBrutoCredito);
                                     
-            $scope.mostrarTabla = true;
+            $scope.mostrarInformacionPersonalizada = true;
             }),function(error){
                 console.log(error)
             };
@@ -79,7 +79,7 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
 
 
     $scope.generarTabla = function(){
-
+       $scope.mostrarTabla = true;
         for( var i in $scope.bancos  ){
 
             var tasaInteres = $scope.bancos[i].tasaInteresMensual; 
@@ -113,12 +113,12 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
             console.log($scope.numeroCuotas+ " Numero de cuotas");
             
         }
-
+    }
        
         
 
     
-    }
+    
 
     $scope.Mostrar = true;
     $scope.Ocultar = false;

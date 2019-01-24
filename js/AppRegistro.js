@@ -20,6 +20,27 @@ app.controller('ctrlRegistro',function($scope,$http,$sce){
     $scope.registrar = function(){
         if($scope.password != $scope.validacionPassword){
             console.log("Las contraseñas no coinciden");
+        }
+        if($scope.nombre==null){
+            console.log("Rellene el campo nombre");
+            return false;
+        }
+        if($scope.password==null){
+            console.log("Rellene el campo password");
+            return false;
+        }
+        if($scope.apellido==null){
+            console.log("Rellene el campo apellido");
+            return false;
+        }
+        if($scope.correo==null){
+            console.log("Rellene campo correo");
+            return false;
+        }
+        if($scope.validacionPassword==null){
+            console.log("Rellene campo validacion");
+            return false
+            
         }else{
 
         var form_data = ({

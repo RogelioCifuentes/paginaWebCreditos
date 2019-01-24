@@ -2,6 +2,9 @@ var app = angular.module('AppTabla',[])
 
 app.controller('ctrlTabla', function($scope,$http,$sce,$log){
 
+    $scope.mostrarTabla = false;
+
+
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
     }
@@ -23,8 +26,6 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
         .then(function(response){  
                 console.log(response);
                 $scope.bancos = response.data;
-               // $scope.tasaInteresMensual = 
-                console.log(response.data.tasaInteresMensual);
                 $scope.generarTabla();
                                     
             }),function(error){
@@ -43,11 +44,34 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
         })
         
         .then(function(response){  
-              console.log(response); 
+            console.log(response); 
           
                 //CREAR METODO QUE ME ARME UN DIALOGO, ESPECIFICANDO EL MONTO DEL CREDITO, LAS CUOTAS Y EL INTERES MENSUAL, OBTENIDO DE ESTA FUNCION.
-                //$scope.generarTabla();
+            
+            $scope.nombreBanco = response.data.idNombre;
+            $scope.tasaInteres = response.data.tasaInteresMensual;
+            $scope.gastosAsociados = response.data.gastosAsociados;
+            var tasaInteres = response.data.tasaInteresMensual;
+            var gastosAsociados = response.data.gastosAsociados;
+            var NumCuotas = $scope.numeroCuotas;
+
+            var ti = tasaInteres/100;
+            var primero = Math.pow(1+ti,$scope.numeroCuotas)*ti;
+            var segundo = Math.pow(1+ti,$scope.numeroCuotas)-1;  
+
+            //MONTO BRUTO CREDITO
+            $scope.montoBrutoCredito = $scope.gastosAsociados + parseInt($scope.montoSolicitado);
+            console.log($scope.montoBrutoCredito);
+            //CUOTA MENSUAL
+            $scope.cuotaMensual = parseInt($scope.montoSolicitado * (primero/segundo));
+
+            //COSTO TOTAL
+            $scope.costoTotal = parseInt(($scope.cuotaMensual * $scope.numeroCuotas) + response.data.gastosAsociados);
+            
+            //TOTAL INTERESES
+            $scope.totalIntereses = parseInt($scope.costoTotal - $scope.montoBrutoCredito);
                                     
+            $scope.mostrarTabla = true;
             }),function(error){
                 console.log(error)
             };

@@ -19,8 +19,8 @@
                         </div>
                         <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                            <li><a href="registro.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
+                            <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
                         </ul>
                         </div>
                     </div>
@@ -79,19 +79,50 @@
 
         <div class="row">
             <button id="submit_btn" class="btn btn-primary " ng-click="llamarDatos()" >Simular</button>
-            <button type="reset" class="btn btn-secondary" ng-click=traerBanco() >Limpiar</button>  
+            <button type="reset" class="btn btn-secondary">Limpiar</button>  
             <button type="button" class="btn btn-success btn-sm" ng-click="MostrarOtros('show')">Personalizar Mi Credito</button>
         </div>
     </form>
 
 
-                                       <!--TRAE LA INFO DE UN BANCO A ELECCION-->
-    <div>
-            <input type="text" placeholder ="Nombre de banco y te lo traigo" ng-model ="nombre">
-            <button type="input" class="btn btn-secondary"  ng-click=traerBanco() >TraerBanco</button> 
+                            <!--TRAE LA INFO DE UN BANCO A ELECCION-->
+                            <div>
+                                    <div>
+                                            
+                                        <select ng-model ="nombre" required>
+                                            <option value =''>Elegir Banco</option>
+                                            <option value="Banco Santander">Banco Santander</option>
+                                            <option value="Banco Consorcio">Banco Consorcio</option>
+                                            <option value="Banco de Chile">Banco de Chile</option>
+                                            <option value="Banco Estado">Banco Estado</option>
+                                            <option value="Banco Falabella">Banco Falabella</option>
+                                            <option value="Banco Itaú">Banco Itaú</option>
+                                            <option value="Banco Ripley">Banco Ripley</option>
+                                            <option value="Banco Santander">Banco Santander</option>
+                                            <option value="BCI Nova">BCI Nova</option>
+                                            <option value="Scotiabank">Scotiabank</option>
+                                            </select>
 
-    </div>
-                <!--TABLA-->
+                                            <button type="input" class="btn btn-secondary"  ng-click=traerBanco() >Simular</button>
+                                        </div>
+                            
+                                      
+                                </div>
+                                
+
+                            <!--INFO DEL CREDITO PERSONALIZADO-->
+        <div ng-show="mostrarTabla">
+            <p>Su credito solicitado por un monto de: ${{montoSolicitado}}</p>
+            <p>En la institucion: {{nombreBanco}}</p>
+            <p>Tiene un costo total de: ${{costoTotal}}</p>
+            <p>Cada cuota cuesta: ${{cuotaMensual}}</p>
+            <p>Con un interes del {{tasaInteres}}% mensual</p>
+            <p>Al terminar de pagar, usted habra pagado un total de ${{totalIntereses}} en intereses, ademas de ${{gastosAsociados}} en gastos asociados.</p>
+        </div>
+
+
+
+            <!--TABLA-->
         
     <div class="panel-body">
         <p><strong>* Las comparaciones realizadas a través de esta aplicación, no constituyen ni suponen la obligación de las empresas respecto de otorgar el crédito que usted consulta.</strong></p>
@@ -149,6 +180,7 @@
     </table>
 
 
+</div>
 </div>
 
 

@@ -43,10 +43,10 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                 if(response.data){
                     
                     if($scope.usuario.rol.idRol == 3){                           //Rol Usuario comun, redirige a la tabla de simulacion.
-                    window.location.href='paginaTabla.html'
+                    window.location.href='paginaTablaRegistrado.html'
                     
                     }else if($scope.usuario.rol.idRol == 2){                     //Rol Ejecutivo, redirige a nada en especial aun.
-                    window.location.href='inicioSesion.html'
+                    window.location.href='pagEjecutivos.html'
                     
                     }else if($scope.usuario.rol.idRol == 1){                     //Rol Admin, se redirige a su panel de control.
                     window.location.href='menuAdministrador.html'

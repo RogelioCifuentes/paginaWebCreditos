@@ -22,7 +22,13 @@ app.controller('ctrlEjecutivos',function($scope,$http,$sce){
             config : header_config})
         
         .then(function(response){  
-                console.log(response);                                 
+                console.log(response);     
+                $scope.ejecutivos = response.data;
+                for(i in ejecutivos){
+                    if(ejecutivos[i].nombre === localStorage.getItem("username")){
+                        $scope.nombreEjecutivo = ejecutivos[i].nombre;
+                    }    
+                }                           
             }),function(error){
                 console.log(error)
             };

@@ -18,30 +18,40 @@
         <div class="input-group col-xs-4">
            
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input type="text" class="form-control" placeholder="11.111.111-1"  ng-model="rut" required="required" ng-pattern = "/^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9Kk]{1}$/">                
+            <input type="text" class="form-control" placeholder="11.111.111-1  **OBLIGATORIO**"  ng-model="rut" required="required" ng-pattern = "/^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9Kk]{1}$/" required/>                
         </div>
             
                        <!--PASSWORD-->
 
         <div class="input-group col-xs-4">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input type="password" class="form-control" placeholder="Password Actual"  ng-model="password" required="required">
+            <input type="password" class="form-control" placeholder="Password Actual **OBLIGATORIO**"  ng-model="password" required/>
         </div>
                         <!--NUEVA PASSWORD-->
         <div class="input-group col-xs-4">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input type="password" class="form-control" placeholder="Nueva Password"  ng-model="nuevaPassword" required="required">
+            <input type="password" class="form-control" placeholder="Nueva Password  **OPCIONAL**"   ng-model="nuevaPassword">
         </div>
         
                          <!--CORREO-->
         
         <div class="input-group col-xs-4">
             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            <input type="text" class="form-control" placeholder="Email"  ng-model="correo" required="required">
+            <input type="text" class="form-control" placeholder="Email **OPCIONAL**"  ng-model="correo">
         </div>
-        
-        <button id="submit_btn" class="btn btn-primary" ng-click="actualizarDatos()" >Iniciar</button> 
+         
+        <button id="submit_btn" class="btn btn-primary" ng-click="actualizarDatos()" >Actualizar</button> 
+        <div class="col-md-10 col-xs-offset-4" style="padding:20px;">
+            
+            <div class="bg-warning col-xs-4"  ng-show="mostrarMensaje">
+                {{mensaje}}
+            </div>
+        </div>
+
     </div>
+
+
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>

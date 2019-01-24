@@ -2,6 +2,9 @@ var app = angular.module('AppUsuario', [])
 
 app.controller('ctrlUsuario',function($scope,$http,$sce){
 
+    $scope.mostrarMensaje = false;
+    $scope.mensaje = "";
+
     $scope.trustSrc = function(src){
         return $sce.trustAsResourceUrl(src);
     }
@@ -31,6 +34,8 @@ app.controller('ctrlUsuario',function($scope,$http,$sce){
         }).then(
             function(response){
                 console.log(response);
+                $scope.mostrarMensaje = true;
+                $scope.mensaje = "Datos actualizados.";
                
             },function(error){
                 console.log(error);

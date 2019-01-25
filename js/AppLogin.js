@@ -44,8 +44,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
             url : $scope.trustSrc("http://localhost:8080/usuarios/login"),
             data : JSON.stringify(form_data),
             config : header_config
-        }).then(
-            function(response){
+        }).then(function(response){
                 localStorage.setItem("user",JSON.stringify(response.data));
                 $scope.usuario = response.data
                 

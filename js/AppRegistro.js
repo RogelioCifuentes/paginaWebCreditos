@@ -22,23 +22,28 @@ app.controller('ctrlRegistro',function($scope,$http,$sce){
             console.log("Las contraseñas no coinciden");
         }
         if($scope.nombre==null){
-            console.log("Rellene el campo nombre");
+            $scope.mostrarError=true;
+            $scope.mensaje = "Todos los campos deben ser completados."
             return false;
         }
         if($scope.password==null){
-            console.log("Rellene el campo password");
+            $scope.mostrarError=true;
+            $scope.mensaje = "Todos los campos deben ser completados."
             return false;
         }
         if($scope.apellido==null){
-            console.log("Rellene el campo apellido");
+            $scope.mostrarError=true;
+            $scope.mensaje = "Todos los campos deben ser completados."
             return false;
         }
         if($scope.correo==null){
-            console.log("Rellene campo correo");
+            $scope.mostrarError=true;
+            $scope.mensaje = "Todos los campos deben ser completados."
             return false;
         }
         if($scope.validacionPassword==null){
-            console.log("Rellene campo validacion");
+            $scope.mostrarError=true;
+            $scope.mensaje = "Todos los campos deben ser completados."
             return false
             
         }else{
@@ -57,17 +62,20 @@ app.controller('ctrlRegistro',function($scope,$http,$sce){
             data : JSON.stringify(form_data),
             config : header_config
         }).then(
-            function(data){
-                console.log(data);              
-                
-                if(data.status!=500){
-                    window.location.href="login.html"        
+            function(response){
+
+                if(response.data){
+                    window.location.href="login.html"
+                }else{
+                    $scope.mostrarError = true;
+                    $scope.mensaje = "Rut o Correo actualmente en uso."
                 }
+                console.log(response);              
+                
+               
          
             },function(error){
                 console.log(error)
-                $scope.mostrarError=true;
-                    $scope.mensaje = "Rellene todos los campos."
             });
         
         }};

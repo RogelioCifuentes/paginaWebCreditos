@@ -12,7 +12,7 @@
     
 <div ng-controller="ctrlUsuario">
 
-        <div class = "container-fluid" ng-controller="ctrlTabla">
+        <div class = "container-fluid">
                 <nav class="navbar navbar-inverse">
                     <div class="container-fluid">
                         <div class="navbar-header">
@@ -22,7 +22,7 @@
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-sunglasses"></span> Ejecutivos</a></li>
                             <li><a href="paginaTablaRegistrado.html"><span class="glyphicon glyphicon-euro"></span> Simular</a></li>
-                            <li><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                            <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                         </ul>
                         </div>
                     </div>

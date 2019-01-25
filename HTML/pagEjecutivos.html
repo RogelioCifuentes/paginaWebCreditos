@@ -11,13 +11,13 @@
         <nav class="navbar navbar-inverse">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                    <a class="navbar-brand" href="Portada.html">Bienvenido {{nombreEjecutivo}}</a>
+                    <a class="navbar-brand" href="Portada.html">Bienvenido {{user.nombre}}</a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                        
                         <li><a href="pestañaUsuario.html"><span class="glyphicon glyphicon-wrench"></span> Configuracion</a></li>
-                        <li><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                        <li ng-click="logOut()"><a href="login.html"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
                     </ul>
                     </div>
                 </div>

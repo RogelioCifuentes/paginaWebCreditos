@@ -6,8 +6,11 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
     $scope.rut = "";
     $scope.password ="";
     $scope.mostrarError = false;
+    $scope.mostrarErrorBANEADO = false;
     $scope.mostrarLogin = true;
     $scope.mensaje = "";
+    $scope.botonInicio = true;
+    $scope.botonRegistrarse = true;
     
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -39,11 +42,23 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
             config : header_config
         }).then(
             function(response){
+                localStorage.setItem("user",JSON.stringify(response.data));
                 $scope.usuario = response.data
+                
                 if(response.data){
                     
+                    if($scope.usuario.activo!=1){
+                        $scope.mostrarErrorBANEADO = true;
+                        $scope.mensaje = "**USUARIO BANEADO**";
+                        $scope.botonInicio = false;
+                        $scope.botonRegistrarse = false;
+                       
+                    return false;
+                    }
+
                     if($scope.usuario.rol.idRol == 3){                           //Rol Usuario comun, redirige a la tabla de simulacion.
                     window.location.href='paginaTablaRegistrado.html'
+                   
                     
                     }else if($scope.usuario.rol.idRol == 2){                     //Rol Ejecutivo, redirige a nada en especial aun.
                     window.location.href='pagEjecutivos.html'

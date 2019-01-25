@@ -4,7 +4,7 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
 
     $scope.mostrarTabla = false;
     $scope.mostrarInformacionPersonalizada = false;
-
+    $scope.user = JSON.parse(localStorage.getItem("user"));
 
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -19,6 +19,11 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
             
     $scope.llamarDatos = function(){
         //SOLICITUD DE DATOS
+        if($scope.numeroCuotas==null){
+            return false
+        }else if($scope.montoSolicitado==null){
+            return false;
+        }
         $http({
             method : 'GET',
             url : $scope.trustSrc('http://localhost:8080/bancos/listar'),header_config})
@@ -117,7 +122,9 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
        
         
 
-    
+    $scope.logOut = function(){
+        localStorage.clear();
+    }
     
 
     $scope.Mostrar = true;

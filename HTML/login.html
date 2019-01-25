@@ -15,12 +15,12 @@
 
     <!--Barra de arriba-->
     <div class = "container-fluid" ng-controller="ctrlLogin">
-        <nav class="navbar navbar-inverse">
+        <nav  ng-show="botonRegistrarse" class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
                 <a class="navbar-brand" href="Portada.html">Inicio</a>
                 </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
+                <div class="collapse navbar-collapse" id="myNavbar" >
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="registro.html"><span class="glyphicon glyphicon-user"></span>Registrate</a></li>
                 </ul>
@@ -56,13 +56,18 @@
             {{mensaje}} 
             </div>
         </div>
+        <div class="col-md-10 col-xs-offset-4" style="padding:20px;">
+                <div class="bg-warning col-xs-4 alert alert-danger"  ng-show="mostrarErrorBANEADO" >
+                {{mensaje}} 
+                </div>
+            </div>
 
         <br>
 
         <!----- Boton, con funcion login() ------>
         <div> 
-        <button id="submit_btn" class="btn btn-primary" ng-click="login()" >Iniciar</button> 
-        <a id="submit_btn" class="btn" href="registro.html">Registrarse</a>            
+        <button id="submit_btn" class="btn btn-primary" ng-click="login()" ng-show="botonInicio" >Iniciar</button> 
+        <a id="submit_btn" class="btn" href="registro.html" ng-show="botonRegistrarse">Registrarse</a>            
     </div>
     
 

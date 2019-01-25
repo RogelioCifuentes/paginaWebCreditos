@@ -41,6 +41,11 @@ app.controller('ctrlUsuario',function($scope,$http,$sce){
                 console.log(error);
             });
         }
+
+        
+        $scope.logOut = function(){
+            localStorage.clear();
+        }
     
     })
 

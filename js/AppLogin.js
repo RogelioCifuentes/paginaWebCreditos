@@ -2,7 +2,7 @@
 var app = angular.module('AppLogin', [])
 
 app.controller('ctrlLogin',function($scope,$http,$sce){
-
+    $scope.user = JSON.parse(localStorage.getItem("user"));
     $scope.rut = "";
     $scope.password ="";
     $scope.mostrarError = false;
@@ -11,6 +11,10 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
     $scope.mensaje = "";
     $scope.botonInicio = true;
     $scope.botonRegistrarse = true;
+    
+    if($scope.user){
+        window.location.href="paginaTablaRegistrado.html"
+    }
     
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);

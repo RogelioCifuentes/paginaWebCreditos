@@ -19,10 +19,15 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
             
     $scope.llamarDatos = function(){
         //SOLICITUD DE DATOS
+
+        //if($scope.numeroCuotas || $scope.numeroCuotas==null || $scope.numeroCuotas==''){
         if($scope.numeroCuotas==null){
             return false
         }else if($scope.montoSolicitado==null){
             return false;
+        }
+        if($scope.numeroCuotas!=null && $scope.montoSolicitado !=null && $scope.nombre!=null){
+            $scope.mostrarTabla = false;
         }
         $http({
             method : 'GET',

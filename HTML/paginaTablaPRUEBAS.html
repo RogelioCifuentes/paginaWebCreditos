@@ -66,7 +66,8 @@
 
                      <!--TRAE LA INFO DE UN BANCO A ELECCION-->
                             <!--BANCO PERSONALIZADO-->
-    <div class ="form-group" ng-show="Mostrar">   
+ 
+                            <div class ="form-group" ng-show="Mostrar">   
         <label >Simular un banco</label>
         <div class="col-md-3">
             <select class="form-control" ng-model ="nombre">
@@ -84,9 +85,8 @@
             </select>
                             
                                  <!--BOTONES-->
-    <!--Mostrar consulta personalizada, Simular con un banco o simular con todos-->
-                    <!--BOTON PARA SIMULACION PERSONALIZADA-->
-            <button class="btn btn-success btn-sm" ng-click="MostrarOtros('show')">Personalizar Mi Credito</button>
+                          <!--Simular con 3 bancos-->
+          
                     <!--BOTON PARA LLAMAR LOS DATOS-->
             <button class="btn btn-primary " ng-click="llamarDatos()" >Simular</button>
         </div>
@@ -108,12 +108,12 @@
 
                             <!--INFO DEL CREDITO PERSONALIZADO-->
         <div ng-show="mostrarInformacionPersonalizada">
-            <p>Su credito solicitado por un monto de: <strong>${{montoSolicitado}}</strong></p>
+            <p>Su credito solicitado por un monto de: ${{montoSolicitado}}</p>
             <p>En la institucion: {{nombreBanco}}</p>
             <p>Tiene un costo total de: ${{costoTotal}}</p>
             <p>Cada cuota cuesta: ${{cuotaMensual}}</p>
             <p>Con un interes del {{tasaInteres}}% mensual</p>
-            <p>Al terminar de pagar, usted habra pagado un total de ${{totalIntereses + montoSolicitado}} en intereses, ademas de ${{gastosAsociados}} en gastos asociados.</p>
+            <p>Al terminar de pagar, usted habra pagado un total de ${{totalIntereses}} en intereses, ademas de ${{gastosAsociados}} en gastos asociados.</p>
         </div>
 
 

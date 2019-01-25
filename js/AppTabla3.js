@@ -31,8 +31,11 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
         .then(function(response){  
                 console.log(response);
                 $scope.bancos = response.data;
+                if($scope.nombre != null){
+                    $scope.traerBanco();
+                }else{
                 $scope.generarTabla();
-                                    
+                }              
             }),function(error){
                 console.log(error)
             };

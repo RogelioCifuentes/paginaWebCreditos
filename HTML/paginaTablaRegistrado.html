@@ -9,23 +9,28 @@
     <title>Simular</title>
 </head>
 <body>
-                    <!--BARRA DE MENU PRINCIPAL-->
-    <header>
-        <div class = "container-fluid">
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                    <a class="navbar-brand" href="Portada.html">Inicio</a>
-                        </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-                    </ul>
+  <!--BARRA DE MENU PRINCIPAL-->
+
+  <header ng-controller="ctrlTabla">
+    <div class = "container-fluid">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+               <a class="navbar-brand glyphicon glyphicon-home" href="Portada.html"> Inicio</a>
                     </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                        <li><a href="historialCreditos.html"><span class="glyphicon glyphicon-th-list"></span> Historial</a></li>
+                    <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-sunglasses"></span> Ejecutivos</a></li>
+                    <li><a href="pestañaUsuario.html"><span class="glyphicon glyphicon-wrench"></span> Configuracion</a></li>
+                    <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out </a></li>
+                </ul>
                 </div>
-            </nav>
-        </div>
-   </header>
+            </div>
+        </nav>
+    </div>
+
+</header>
             <!--FORMULARIO DATOS PARA SOLICITAR CREDITO-->
 <div class="container" ng-controller="ctrlTabla"><hr>
     <form>
@@ -137,7 +142,7 @@
         <div class="container" style="background-color: rgba( 93, 173, 226 , 0.2);width: 50%;border-radius: 15px;text-align:center;border:2px solid;border-color: lightslategrey" ng-show="mostrarInformacionPersonalizada">
             <div><br>
                 <p>Su credito solicitado por un monto de: ${{montoSolicitado}}</p>
-                <p>En la institucion: {{nombreBanco}}</p>
+                <p>En la institucion: {{nombre}}</p>
                 <p>Tiene un costo total de: ${{costoTotal}}</p>
                 <p>Cada cuota cuesta: ${{cuotaMensual}}</p>
                 <p>Con un interes del {{tasaInteres}}% mensual</p>

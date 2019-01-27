@@ -11,6 +11,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
     $scope.mensaje = "";
     $scope.botonInicio = true;
     $scope.botonRegistrarse = true;
+    $scope.mostrarBarraErrores = false;
     
     if($scope.user){
         window.location.href="paginaTablaRegistrado.html"
@@ -27,9 +28,10 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
     }
    
     $scope.login = function(){
-        if($scope.rut=="" || $scope.password==""){
+        if($scope.rut=="" || $scope.rut==null || $scope.password==null || $scope.password==""){
             $scope.mensaje = "Ingrese datos";
             $scope.mostrarError = true;
+            $scope.mostrarBarraErrores = true;
             return;
 
         }else{
@@ -55,6 +57,8 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                         $scope.mensaje = "**USUARIO BANEADO**";
                         $scope.botonInicio = false;
                         $scope.botonRegistrarse = false;
+                        $scope.mostrarBarraErrores = true;
+                        localStorage.clear();
                        
                     return false;
                     }
@@ -71,6 +75,7 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                     }
                     
                 }else{
+                    $scope.mostrarBarraErrores = true;
                     $scope.mostrarError = true;
                     $scope.mensaje = "Usuario y/o contraseña incorrectos."
                 }  

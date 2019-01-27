@@ -254,7 +254,7 @@ app.controller('ctrlTablaPersonalizada', function($scope,$http,$sce,$log){
           
                 //CREAR METODO QUE ME ARME UN DIALOGO, ESPECIFICANDO EL MONTO DEL CREDITO, LAS CUOTAS Y EL INTERES MENSUAL, OBTENIDO DE ESTA FUNCION.
             
-            $scope.nombreBanco = response.data.idNombre;
+            
             $scope.tasaInteres = response.data.tasaInteresMensual;
             $scope.gastosAsociados = response.data.gastosAsociados;
             var tasaInteres = response.data.tasaInteresMensual;
@@ -334,6 +334,10 @@ app.controller('ctrlTablaPersonalizada', function($scope,$http,$sce,$log){
            $scope.ngMostrarOcultar1 = false;
         }
     }
+
+    $scope.logOut = function(){
+        localStorage.clear();
+  }
  } });
         
 

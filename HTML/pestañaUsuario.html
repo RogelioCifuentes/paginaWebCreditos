@@ -6,60 +6,65 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Configuraciones</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
-
+    <link rel="stylesheet" type="text/css" href="../css/Estilos.css">
 </head>
 <body>
     
 <div ng-controller="ctrlUsuario" align="center">
 
-        <div class = "container-fluid">
-                <nav class="navbar navbar-inverse">
-                    <div class="container-fluid">
-                        <div class="navbar-header">
-                        <a class="navbar-brand"> Configuracion</a>
-                        </div>
-                        <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-sunglasses"></span> Ejecutivos</a></li>
-                            <li><a href="paginaTablaRegistrado.html"><span class="glyphicon glyphicon-euro"></span> Simular</a></li>
-                            <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
-                        </ul>
-                        </div>
-                    </div>
-                </nav>
+    <div class = "container-fluid">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                <a class="navbar-brand"> Configuracion De Perfil</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-sunglasses"></span> Ejecutivos</a></li>
+                    <li><a href="paginaTablaRegistrado.html"><span class="glyphicon glyphicon-euro"></span> Simular</a></li>
+                    <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out</a></li>
+                </ul>
+                </div>
             </div>
+        </nav>
+    </div>
+    <br style="line-height:80px">
+
+    <div class="container" style="background:rgba(0, 0, 0, 0.5);width: 30%;border-radius: 15px;border:2px solid;border-color:lightblue">
                              <!--EDITAR USUARIO-->
-          <h1>Editar datos</h1>
+        <h1 style="color:white;font-size: 45px"><strong>Editar datos personales</strong></h1><hr>
                             <!--RUT-->
-         
-        <div class="input-group col-xs-4">
-           
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input type="text" class="form-control" placeholder="11.111.111-1  **OBLIGATORIO**"  ng-model="rut" required="required" ng-pattern = "/^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9Kk]{1}$/" required/>                
-        </div>
+        <div class="row">
+            <div class="input-group col-md-8">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" placeholder="RUT 11.111.111-1  **OBLIGATORIO**"  ng-model="rut" required="required" ng-pattern = "/^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9Kk]{1}$/" required/>                
+            </div>
+        </div><br>
             
                        <!--PASSWORD-->
-
-        <div class="input-group col-xs-4">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input type="password" class="form-control" placeholder="Password Actual **OBLIGATORIO**"  ng-model="password" required/>
-        </div>
+        <div class="row">
+            <div class="input-group col-md-8">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" placeholder="Password Actual **OBLIGATORIO**"  ng-model="password" required/>
+            </div>
+        </div><br>
                         <!--NUEVA PASSWORD-->
-        <div class="input-group col-xs-4">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-            <input type="password" class="form-control" placeholder="Nueva Password  **OPCIONAL**"   ng-model="nuevaPassword">
-        </div>
-        
+        <div class="row">
+            <div class="input-group col-md-8">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" placeholder="Nueva Password  **OPCIONAL**"   ng-model="nuevaPassword">
+            </div>
+        </div><br>
                          <!--CORREO-->
-        
-        <div class="input-group col-xs-4">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            <input type="text" class="form-control" placeholder="Email **OPCIONAL**"  ng-model="correo">
-        </div>
-         
-        <button id="submit_btn" class="btn btn-primary" ng-click="actualizarDatos()" >Actualizar</button> 
-        <div class="col-md-10 col-xs-offset-4" style="padding:20px;">
-            
+        <div class="row">
+            <div class="input-group col-md-8">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input  type="text" class="form-control" placeholder="Email **OPCIONAL**"  ng-model="correo">
+            </div>
+        </div><hr>
+                                <!--BOTON PARA ACTUALIZAR-->
+        <button id="submit_btn" class="btn btn-primary btn-lg" ng-click="actualizarDatos()" >Actualizar</button> 
+        <div class="col-md-10 col-xs-offset-4" style="padding:20px;">     
             <div class="bg-warning col-xs-4"  ng-show="mostrarMensaje">
                 {{mensaje}}
             </div>

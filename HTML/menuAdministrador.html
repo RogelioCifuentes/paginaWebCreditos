@@ -5,92 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="../css/css.css">
+    <link rel="stylesheet" type="text/css" href="../css/Estilos.css">
     <title>Admin home</title>
 </head>
-
-<div class="container" ng-controller = "ctrlAdministrador">
 <body>
-  <header>
-    <div class ="container-fluid">
-        <nav class="navbar navbar-inverse">
-            
-                
+    <!--BARRA MENU PRINCIPAL-->
+    <header>
+        <div class ="container-fluid">
+            <nav class="navbar navbar-inverse">               
                 <a class="navbar-brand">Panel de control Administrador: {{user.nombre}}</a>
                 <ul class="nav navbar-nav navbar-right">
-                        <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-sunglasses"></span> Ejecutivos</a></li>
-                        <li><a href="pestañaUsuario.html"><span class="glyphicon glyphicon-wrench"></span> Configuracion</a></li>
-                        <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out </a></li>
-                    </ul>
-                </div>
-           
-        </nav> 
-    
-</header>
-</br>
-
-
-    
-
-
-    <div class="d-flex justify-content-center h-100">
-        <div class="card">
-            <div class="card-header">
-                <br><br>
-                <h1 style="font-size:40px" align="center" class="text-primary"><strong></strong></h1>
-                <br><br><br><br>
-            </div>
+                    <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-sunglasses"></span> Ejecutivos</a></li>
+                    <li><a href="pestañaUsuario.html"><span class="glyphicon glyphicon-wrench"></span> Configuracion</a></li>
+                    <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out .</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
-
-    <!--CREAR EJECUTIVO-->
+    </header>
+<div class="container" ng-controller="ctrlAdministrador">
+    <h1 class="text-primary" style="font-size: 60px;text-align: center"><strong>Panel de Control</strong></h1><hr>
+    
     <div class="row">
+        <div class="col-md-1"></div>
         <div class="col-md-4">
-            <br><br><br>
+            <br style="line-height:100px">
             <button type="button" class="btn btn-primary btn-block" ng-click="ngMostrarOcultarFunBancCrear(ngMostrarOcultarBancCrear)">Añadir Banco</button>
             <button type="button" class="btn btn-primary btn-block" ng-click="ngMostrarOcultarFunBanc(ngMostrarOcultarBanc)">Actualizar Banco</button>
             <button type="button" class="btn btn-primary btn-block" ng-click="ngMostrarOcultarFunEje(ngMostrarOcultarEje)">Crear Ejecutivo  </button>
             <button type="button" class="btn btn-primary btn-block" ng-click="ngMostrarOcultarFunUsu(ngMostrarOcultarUsu)">Crear Usuario </button>
             <button type="button" class="btn btn-danger btn-block" ng-click="ngMostrarOcultarFunBan(ngMostrarOcultarBan)">Banear Usuario </button>
         </div>
-        <div class="col-md-1"></div>
-        <div style="text-align: center" class="col-md-6" ng-show="ngMostrarOcultarEje">
-            <h3 style="text-align:left">Registro de Ejecutivo</h3>
-            <div class="input-group col-xs-8">
+        <div class="col-md-2"></div>
+        <!--CREAR EJECUTIVO-->
+        <div class="container col-md-6" style="background:rgba(0, 0, 0, 0.5);width: 30%;border-radius: 15px;border:2px solid;border-color:lightblue" ng-show="ngMostrarOcultarEje">
+            <h3 style="text-align:center;color: white"><strong>Registro De Ejecutivo</strong></h3><hr>
+            <!--RUT-->
+            <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                 <input type="text" class="form-control" placeholder="11.111.111-1"  ng-model="rut" required="required" ng-pattern = "/^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9Kk]{1}$/">                
-            </div>
+            </div><br>
             
             <!--PASSWORD-->
-            <div class="input-group col-xs-8">
+            <div class="input-group">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                 <input type="password" class="form-control" placeholder="Password"  ng-model="password" required="required">
-            </div>
+            </div><br>
         
             <!--NOMBRE-->
         
-            <div class="input-group col-xs-8">
+            <div class="input-group col">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input type="text" class="form-control" placeholder="Nombre"  ng-model="nombre" required="required">
-            </div>
+            </div><br>
         
             <!--APELLIDOS-->
         
-            <div class="input-group col-xs-8">
+            <div class="input-group col">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                     <input type="text" class="form-control" placeholder="Apellidos"  ng-model="apellido" required="required">
-            </div>
+            </div><br>
         
             <!--CORREO-->
         
-            <div class="input-group col-xs-8">
+            <div class="input-group col">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                     <input type="email" class="form-control" placeholder="Ejemplo@ejemplo.com"  ng-model="correo" required="required">
-            </div>
+            </div><hr>
             
-        
-            <div style="text-align:left">
-                <br>
+            <div style="text-align:center">
                 <button id="submit_btn" class="btn btn-primary" ng-click="crearUsuarioEjecutivo()" >Crear</button>
                 <button type="reset" class="btn btn-secondary">Limpiar</button>
              <!--MENSAJE DE EXITO AL CREAR EJECUTIVO-->
@@ -102,164 +84,144 @@
             </div>
         </div>
             <!--CREAR USUARIO NORMAL-->
-        <div style="text-align:center" class="col-md-6" ng-show = "ngMostrarOcultarUsu">
-            <h3 style="text-align:left">Registro de Usuario</h3>          
-            <!--RUT-->
+        <div class="container col-md-6" style="background:rgba(0, 0, 0, 0.5);width: 30%;border-radius: 15px;border:2px solid;border-color:lightblue" ng-show="ngMostrarOcultarUsu">
+            <h3 style="text-align:center;color: white"><strong>Registro De Usuario</strong></h3><hr>         
+                <!--RUT-->
+            <div class="input-group col">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" placeholder="11.111.111-1"  ng-model="rutUs" required="required" ng-pattern = "/^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9Kk]{1}$/">                
+            </div><br>
 
-        <div class="input-group col-xs-8">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        <input type="text" class="form-control" placeholder="11.111.111-1"  ng-model="rutUs" required="required" ng-pattern = "/^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9Kk]{1}$/">                
-        </div>
+                    <!--PASSWORD-->
+            <div class="input-group col">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                <input type="password" class="form-control" placeholder="Password"  ng-model="passwordUs" required="required">
+            </div><br>
 
-                <!--PASSWORD-->
-        <div class="input-group col-xs-8">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-        <input type="password" class="form-control" placeholder="Password"  ng-model="passwordUs" required="required">
-        </div>
+                    <!--NOMBRE-->
 
-                <!--NOMBRE-->
+            <div class="input-group col">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" placeholder="Nombre"  ng-model="nombreUs" required="required">
+            </div><br>
 
-        <div class="input-group col-xs-8">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input type="text" class="form-control" placeholder="Nombre"  ng-model="nombreUs" required="required">
-        </div>
+                    <!--APELLIDOS-->
 
-                <!--APELLIDOS-->
+            <div class="input-group col">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                <input type="text" class="form-control" placeholder="Apellidos"  ng-model="apellidoUs" required="required">
+            </div><br>
 
-        <div class="input-group col-xs-8">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            <input type="text" class="form-control" placeholder="Apellidos"  ng-model="apellidoUs" required="required">
-        </div>
+                    <!--CORREO-->
 
-                <!--CORREO-->
-
-        <div class="input-group col-xs-8">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            <input type="email" class="form-control" placeholder="Ejemplo@ejemplo.com"  ng-model="correoUs" required="required">
-        </div>
+            <div class="input-group col">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                <input type="email" class="form-control" placeholder="Ejemplo@ejemplo.com"  ng-model="correoUs" required="required">
+            </div><hr>
 
 
-            <div align="left"><br>
+            <div align="center">
             <button id="submit_btn" class="btn btn-primary" ng-click="crearUsuario()" >Crear</button>
             <button type="reset" class="btn btn-secondary">Limpiar</button>
         <!--MENSAJE DE EXITO AL CREAR USUARIO-->
                 <div class="col-md-10 col-xs-offset-4" style="padding:20px;">
                     <div class="bg-warning col-xs-4"  ng-show="mostrarMensaje" >
-                     {{mensaje}}
+                        {{mensaje}}
                     </div>
                 </div>
             </div>
         </div>
-
-
+        <!--CONTENEDOR CON DATOS Y BACKGROUND-->
+        <div class="container col-md-6" style="background:rgba(0, 0, 0, 0.5);width: 30%;border-radius: 15px;border:2px solid;border-color:lightblue"ng-show = "ngMostrarOcultarBancCrear">
         <!--CREAR UN NUEVO BANCO-->
-        <div class="col-md-6" ng-show = "ngMostrarOcultarBancCrear">
-
                 <!--SETEAR CAE, INTERES Y GASTOS ASOCIADOS-->
-                <form>
-                    <h3 align="center">Añadir banco</h3>
-                    <div>
-                        <input  type ="name" class="form-control" placeholder="Nombre Banco" ng-model="idNombreCREAR" required/>    
-                    </div>
-            
-                    <div>
-                        <input type ="number" min="0" step=".01" class ="form-control" placeholder="CAE ej: '23.4'" ng-model="caeCREAR" required/>
-                    </div>
-            
-                    <div>
-                        <input type = "number" min="0" step=".01" class="form-control" placeholder="Tasa de Interes ej: '1.3'" ng-model="tasaInteresMensualCREAR" required/>
-                    </div>
-            
-                    <div>
-                        <input type ="number" min="0" class="form-control" placeholder="Gastos asociados" ng-model="gastosAsociadosCREAR" required/>
-                    </div>
-                        
-                    <div style="text-align:left"><br>
-                        <button type="submit" class="btn btn-primary" ng-click="crearBanco()">Añadir</button>
-                        <div ng-show = "mostrarMensajeAdd">{{mensajeAdd}}</div>
-                    </div>
-                </form>
-            </div>
-        
-        <!--QUE HACE ESTO-->
-        <div class="col-md-6" ng-show = "ngMostrarOcultarBanc">
-
-            <!--SETEAR CAE, INTERES Y GASTOS ASOCIADOS-->
             <form>
-                <h3 align="center">Actualizar datos de bancos</h3>
-                <div>
-                        <select class="form-control" ng-model ="idNombreBanco">
-                                <option value =''>--Bancos--</option>
-                                <option value="Banco Santander">Banco Santander</option>
-                                <option value="Banco Consorcio">Banco Consorcio</option>
-                                <option value="Banco de Chile">Banco de Chile</option>
-                                <option value="Banco Estado">Banco Estado</option>
-                                <option value="Banco Falabella">Banco Falabella</option>
-                                <option value="Banco Itaú">Banco Itaú</option>
-                                <option value="Banco Ripley">Banco Ripley</option>
-                                <option value="Banco Santander">Banco Santander</option>
-                                <option value="BCI Nova">BCI Nova</option>
-                                <option value="Scotiabank">Scotiabank</option>
-                            </select>  
-                </div>
+                <h3 style="text-align:center;color:white"><strong>Agregar un Banco</strong></h3><hr>
+                <div class="input-group col">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-bold"></i></span>
+                    <input  type ="name" class="form-control" placeholder="Nombre Banco" ng-model="idNombreCREAR" required/>    
+                </div><br>
         
-                <div>
-                    <input type ="number" min="0" step=".01" class ="form-control" placeholder="CAE ej: '23.4'" ng-model="cae">
-                </div>
+                <div class="input-group col">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-signal"></i></span>
+                    <input type ="number" style="-moz-appearance:textfield;" min="0" step=".01" class ="form-control" placeholder="CAE ej: '23.4'" ng-model="caeCREAR" required/>
+                </div><br>
         
-                <div>
-                    <input type = "number" min="0" step=".01" class="form-control" placeholder="Tasa de Interes ej: '1.3'" ng-model="tasaInteresMensual">
-                </div>
+                <div class="input-group col">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-signal"></i></span>
+                    <input type = "number" style="-moz-appearance:textfield;" min="0" step=".01" class="form-control" placeholder="Tasa de Interes ej: '1.3'" ng-model="tasaInteresMensualCREAR" required/>
+                </div><br>
         
-                <div>
-                    <input type ="number" min="0" class="form-control" placeholder="Gastos asociados" ng-model="gastosAsociados">
-                </div>
+                <div class="input-group col">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-signal"></i></span>
+                    <input type ="number" style="-moz-appearance:textfield;" min="0" class="form-control" placeholder="Gastos asociados" ng-model="gastosAsociadosCREAR" required/>
+                </div><hr>
                     
-                <div style="text-align:left"><br>
-                    <button type="submit" class="btn btn-primary" ng-click="actualizarDatos()">Actualizar</button>
-                    <div ng-show = "mostrarMensaje2">{{mensaje2}}</div>
-                </div>
+                <div style="text-align:center">
+                    <button type="submit" class="btn btn-primary" ng-click="crearBanco()">Añadir</button>
+                    <div ng-show = "mostrarMensajeAdd">{{mensajeAdd}}</div>
+                </div><br>
             </form>
         </div>
-    
-    
-    
-    
-                                         <!--BANEAR USUARIOS-->
-          
-        <div style="text-align: center" class="col-md-6" ng-show="ngMostrarOcultarBan">
+        <div class="container col-md-6" style="background:rgba(0, 0, 0, 0.5);width: 30%;border-radius: 15px;border:2px solid;border-color:lightblue"ng-show = "ngMostrarOcultarBanc">
+            <!--ACTUALIZAR DATOS DEL BANCO-->
+            <!--SETEAR CAE, INTERES Y GASTOS ASOCIADOS-->
             <form>
-                <div class="input-group col-xs-8">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input type="text" class="form-control" placeholder="11.111.111-1"  ng-model="rutDELETE" required="required" ng-pattern = "/^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9Kk]{1}$/">                
-                </div>
-                        <div style="text-align:left"><br>
-                            <button type="submit" class="btn btn-danger" ng-click="eliminarUsuario()">BANEAR</button>
-                            <div ng-show = "mostrarMensajeDEL">{{mensajeDEL}}</div>
-                        </div>
-                        </div>
-            
-                    </form>
-    
-    
-    
-
-
-
-
-    </div>
-
+                <h3 style="text-align:center;color:white"><strong>Actualizar datos del Banco</strong></h3><hr>
+                <div class="input-group col">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-bold"></i></span>
+                    <select class="form-control" ng-model ="idNombreBanco">
+                        <option value =''>--Bancos--</option>
+                        <option value="Banco Santander">Banco Santander</option>
+                        <option value="Banco Consorcio">Banco Consorcio</option>
+                        <option value="Banco de Chile">Banco de Chile</option>
+                        <option value="Banco Estado">Banco Estado</option>
+                        <option value="Banco Falabella">Banco Falabella</option>
+                        <option value="Banco Itaú">Banco Itaú</option>
+                        <option value="Banco Ripley">Banco Ripley</option>
+                        <option value="Banco Security">Banco Security</option>
+                        <option value="BCI Nova">BCI Nova</option>
+                        <option value="Scotiabank">Scotiabank</option>
+                    </select>  
+                </div><br>
+        
+                <div class="input-group col">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-signal"></i></span>
+                    <input type ="number" style="-moz-appearance:textfield;" min="0" step=".01" class ="form-control" placeholder="CAE ej: '23.4'" ng-model="cae">
+                </div><br>
+        
+                <div class="input-group col">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-signal"></i></span>
+                    <input type = "number" style="-moz-appearance:textfield;" min="0" step=".01" class="form-control" placeholder="Tasa de Interes ej: '1.3'" ng-model="tasaInteresMensual">
+                </div><br>
+        
+                <div class="input-group col">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-signal"></i></span>
+                    <input type ="number" style="-moz-appearance:textfield;" min="0" class="form-control" placeholder="Gastos asociados" ng-model="gastosAsociados">
+                </div><hr>
                     
-      
-
-
-<footer>
-    <p style="color:white" class="text-center"><i>Todos los Derechos Reservados</i></p>
-    <p style="color:white" class="text-center"><i>(Componentes del footer)</i></p>
-</footer>
+                <div style="text-align:center">
+                    <button type="submit" class="btn btn-primary" ng-click="actualizarDatos()">Actualizar</button>
+                    <div ng-show = "mostrarMensaje2">{{mensaje2}}</div>
+                </div><br>
+            </form>
+        </div>
+        <!--BANEAR USUARIOS-->
+        <div class="container col-md-6" style="background:rgba(0, 0, 0, 0.5);width: 30%;margin:80px auto;border-radius: 15px;border:2px solid;border-color:lightblue" ng-show="ngMostrarOcultarBan">
+            <form>
+                <h3 style="text-align:center;color:white"><strong>Banear Usuario</strong></h3><hr>
+                <div class="input-group col">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                    <input type="text" class="form-control" placeholder="11.111.111-1"  ng-model="rutDELETE" required="required" ng-pattern = "/^[0-9]{1,2}.[0-9]{3}.[0-9]{3}-[0-9Kk]{1}$/">                
+                </div><hr>
+                <div style="text-align:center">
+                    <button type="submit" class="btn btn-danger" ng-click="eliminarUsuario()">BANEAR</button>
+                    <div ng-show = "mostrarMensajeDEL">{{mensajeDEL}}</div>
+                </div><br>
+            </form>
+        </div>
+    </div>
 </div>
-
-
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js" integrity="sha384-vhJnz1OVIdLktyixHY4Uk3OHEwdQqPppqYR8+5mjsauETgLOcEynD9oPHhhz18Nw" crossorigin="anonymous"></script>

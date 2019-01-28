@@ -16,7 +16,7 @@
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-               <a class="navbar-brand glyphicon glyphicon-home" href="Portada.html"> Inicio</a>
+               <a class="navbar-brand glyphicon glyphicon-home" href="PortadaRegistrado.html"> Inicio</a>
                     </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
@@ -33,10 +33,11 @@
 </header>
             <!--FORMULARIO DATOS PARA SOLICITAR CREDITO-->
 <div class="container" ng-controller="ctrlTabla"><hr>
-    <form>
+  
                 <!--MONTO A SOLICITAR-->
+    <div class="container" ng-show="ngMostrarOcultar1">
         <div class="row">
-            <div class="form-group" ng-show="ngMostrarOcultar1">
+            <div class="form-group">
             <label class="col-md-3 col-md-offset-3">Monto del Credito</label>
                 <div class="col-md-3">
                 <select  class="change form-control" tabindex="1" type="number" class="form-control" placeholder="Monto Solicitado"  ng-model="montoSolicitado" required="required" maxlength="10">
@@ -95,7 +96,7 @@
                 </div>
             </div>
         </div>
-
+    </div>
          <!--INPUTS PARA INGRESAR MONTO Y CUOTAS PERSONALIZADAS-->
          <!--Datos a ingresar en consulta personalizada--> 
         <div class="form-group" ng-show="ngMostrarOcultar">
@@ -110,7 +111,7 @@
                 <div class="col-md-3">
                     <input type="number" class="form-control" style="-moz-appearance:textfield;" placeholder="Ingrese Cuotas"  ng-model="numeroCuotas" required="required">
                 </div> 
-            </div> 
+            </div> <br>
             <div class = "row">   
                 <label class="col-md-3 col-md-offset-3" >Simular un banco</label>
                 <div class="col-md-3">
@@ -129,14 +130,14 @@
                     </select>
                 </div>
             </div>  
-        </div><br><hr>
+        </div><hr>
                                     <!--BOTONES-->
         <!--Mostrar consulta personalizada, Simular con un banco o simular con todos-->
         <div style="text-align:center">
             <button class="btn btn-success btn-md" ng-click="ngMostrarOcultarFun(ngMostrarOcultar)">Personalizar Mi Credito</button>
             <button class="btn btn-primary " ng-click="llamarDatos()" >Simular</button>
         </div><hr>   
-    </form>
+ 
                  
                  <!--INFO DEL CREDITO PERSONALIZADO-->
         <div class="container" style="background-color: rgba( 93, 173, 226 , 0.2);width: 50%;border-radius: 15px;text-align:center;border:2px solid;border-color: lightslategrey" ng-show="mostrarInformacionPersonalizada">

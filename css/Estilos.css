@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+    background-image: url("../imagen/fondo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+}
+footer{
+    position: auto;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    text-align: center;
+}
+h4{
+    color: white;
+}
+/* Modelo tarjeta de los ejecutivos*/
+.lib-panel {
+    margin: 10px;
+}
+.lib-panel img {
+    width: 225px;
+    height: 225px ;
+    background-color: transparent;
+}
+.lib-panel .row,
+.lib-panel .col-md-6 {
+    padding: 0;
+    background-color: #FFFFFF;
+}
+.lib-panel .lib-row {
+    padding: 0 20px 0 20px;
+}
+.lib-panel .lib-row.lib-header {
+    background-color: #FFFFFF;
+    font-size: 20px;
+    padding: 10px 20px 0 20px;
+}
+.lib-panel .lib-row.lib-header .lib-header-seperator {
+    height: 2px;
+    width: 26px;
+    background-color: #d9d9d9;
+    margin: 7px 0 7px 0;
+}
+.lib-panel .lib-row.lib-desc {
+    position: relative;
+    height: 100%;
+    display: block;
+    font-size: 13px;
+}
+.lib-panel .lib-row.lib-desc a{
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    left: 20px;
+}
+.lib-panel .lib-row.lib-desc .lib-desc-seperator {
+    height: 2px;
+    width: 26px;
+    background-color: #d9d9d9;
+    margin: 7px 0 7px 0;
+}
+.row-margin-bottom {
+    margin-bottom: 20px;
+}
+.box-shadow {
+    -webkit-box-shadow: 0 0 10px 0 rgba(0, 0, 0,10);
+    box-shadow: 0 0 10px 0 rgba(0,0,0,10);
+}
+.no-padding {
+    padding: 0;
+}
+/* Fin de css del pestañaMuestraEjecutivos

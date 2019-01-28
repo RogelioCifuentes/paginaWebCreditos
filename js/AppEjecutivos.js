@@ -4,7 +4,9 @@ app.controller('ctrlEjecutivos',function($scope,$http,$sce){
 
     $scope.user = JSON.parse(localStorage.getItem("user"));
 
-    if($scope.user.idRol!=2){
+    if($scope.user.idRol=3){
+        window.location.href="PortadaRegistrado.html";
+    }else if($scope.user.idRol!=2 && $scope.user.idRol!=1 && $scope.user.idRol!=3){
         window.location.href="Portada.html";
     }
     $scope.trustSrc = function(src) {
@@ -18,9 +20,7 @@ app.controller('ctrlEjecutivos',function($scope,$http,$sce){
     };
 
 
-    $scope.logOut = function(){
-        localStorage.clear();
-    }
+    
     //TRAE UNA LISTA DE TODOS LOS EJECUTIVOS
     $scope.traerEjecutivos = function(){
 
@@ -40,6 +40,10 @@ app.controller('ctrlEjecutivos',function($scope,$http,$sce){
             }),function(error){
                 console.log(error)
             };
+    }
+
+    $scope.logOut = function(){
+        localStorage.clear();
     }
 
 

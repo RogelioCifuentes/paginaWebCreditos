@@ -4,7 +4,7 @@ app.controller('ctrlUsuario',function($scope,$http,$sce){
 
     $scope.mostrarMensaje = false;
     $scope.mensaje = "";
-
+    $scope.user = JSON.parse(localStorage.getItem("user"));
     $scope.trustSrc = function(src){
         return $sce.trustAsResourceUrl(src);
     }

@@ -16,12 +16,8 @@ app.controller('ctrlHistorialCreditos',function($scope,$http,$sce){
         headers: {
             'Content-Type' : 'application/json'
         }
-    };
-
-  //  $scope.llamarDatos = function(){
-
-       
-        console.log($scope.user.rut); 
+    }; 
+      
         //METODO PUT PARA ACTUALIZAR correo y password USUARIO
         $http({
             method : 'PUT',
@@ -31,15 +27,14 @@ app.controller('ctrlHistorialCreditos',function($scope,$http,$sce){
         }).then(
             function(response){
                 $scope.creditos = response.data;
-                
-                console.log(response);
+                console.log(response.fechaCredito);
                 $scope.mostrarMensaje = true;
                 $scope.mensaje = "Datos actualizados.";
                
             },function(error){
                 console.log(error);
             });
-    //    }
+    
 
 
         

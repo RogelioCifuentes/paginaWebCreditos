@@ -6,7 +6,9 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
     $scope.mostrarInformacionPersonalizada = false;
     $scope.user = JSON.parse(localStorage.getItem("user"));
     $scope.mostrarMensaje=false;
-
+    if($scope.nombre=''){
+        $scope.mostrarInformacionPersonalizada=false;
+    }
 
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -46,6 +48,9 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
                    
                 }else{
                 $scope.generarTabla();
+                if($scope.mostrarInformacionPersonalizada=true){
+                    $scope.mostrarInformacionPersonalizada=false;
+                }
                 }              
             }),function(error){
                 console.log(error)

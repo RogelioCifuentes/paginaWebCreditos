@@ -173,7 +173,7 @@
                 
                                 <!-- Primera fila-->
             <tbody >
-                <tr ng-repeat="banco in bancos | orderBy:'costoTotal'" ng-class="{info:$index==0,danger:$index==9 }">
+                <tr ng-repeat="banco in bancos | orderBy:'costoTotal'" ng-class="{warning:$index==0,danger:$index==9 }">
                     <!-- Num-->
                     <td>{{$index+1}}</td>
 

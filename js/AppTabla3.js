@@ -175,6 +175,10 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
     $scope.logOut = function(){
         localStorage.clear();
     }
+
+    $scope.redireccionar = function(){
+        window.location.href="registro.html";
+    }
   
 
     //MOSTRAR U OCULTAR

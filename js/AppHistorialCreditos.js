@@ -27,7 +27,6 @@ app.controller('ctrlHistorialCreditos',function($scope,$http,$sce){
         }).then(
             function(response){
                 $scope.creditos = response.data;
-                console.log(response.fechaCredito);
                 $scope.mostrarMensaje = true;
                 $scope.mensaje = "Datos actualizados.";
                

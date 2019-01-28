@@ -21,7 +21,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav navbar-right">
                         <li><a href="historialCreditos.html"><span class="glyphicon glyphicon-th-list"></span> Historial</a></li>
-                    <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-sunglasses"></span> Ejecutivos</a></li>
+                    <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-list-alt"></span> Ejecutivos</a></li>
                     <li><a href="pestañaUsuario.html"><span class="glyphicon glyphicon-wrench"></span> Configuracion</a></li>
                     <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out </a></li>
                 </ul>
@@ -148,6 +148,7 @@
                 <p>Cada cuota cuesta: ${{cuotaMensual}}</p>
                 <p>Con un interes del {{tasaInteres}}% mensual</p>
                 <p>Al terminar de pagar, usted habra pagado un total de ${{totalIntereses}} en intereses, ademas de ${{gastosAsociados}} en gastos asociados.</p><br>
+                <p class="glyphicon glyphicon-star-empty"><strong>Esta simulacion se ha guardado en tu Historial.</strong ><div class="glyphicon glyphicon-star-empty"></div></p>
             </div>
         </div>
 
@@ -169,7 +170,6 @@
                     <th>CAE</th>
                     <th>Tasa de interes mensual</th>
                     <th>Gastos asociados</th>
-                    <th>Seguro desgravamen</th>
                     <th>Total intereses</th>
                     <th>Monto bruto crédito</th>
                     <th>Costo total</th>
@@ -195,9 +195,6 @@
 
                     <!--Gastos asociados-->
                     <td>{{banco.gastosAsociados | currency:'$':0}}</td>
-
-                    <!--Seguro desgravamen-->
-                    <td>$0</td>
 
                     <!--Total intereses-->
                     <td>{{banco.totalIntereses | currency:'$':0}}</td>

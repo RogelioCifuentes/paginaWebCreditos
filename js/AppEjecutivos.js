@@ -4,6 +4,9 @@ app.controller('ctrlEjecutivos',function($scope,$http,$sce){
 
     $scope.user = JSON.parse(localStorage.getItem("user"));
 
+    if($scope.user.idRol!=2){
+        window.location.href="Portada.html";
+    }
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
     }

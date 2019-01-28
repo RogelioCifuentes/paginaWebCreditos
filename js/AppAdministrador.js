@@ -10,6 +10,10 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
     $scope.mensaje2= "";
     $scope.mensaje3= "";
 
+    if($scope.user.idRol!=1){
+        window.location.href="Portada.html";
+    }
+
     $scope.ngMostrarOcultarEje = false;
     $scope.ngMostrarOcultarFunEje = function(ver){
         if(ver){

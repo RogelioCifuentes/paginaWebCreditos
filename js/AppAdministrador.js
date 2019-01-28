@@ -10,8 +10,10 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
     $scope.mensaje2= "";
     $scope.mensaje3= "";
 
-    if($scope.user.idRol!=1){
-        window.location.href="Portada.html";
+    if($scope.user.rol.idRol!=1){
+        window.location.href="PortadaRegistrado.html";
+    }else if(!$scope.user){
+        window.location.href="Portada.html"
     }
 
     $scope.ngMostrarOcultarEje = false;
@@ -77,8 +79,6 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
         }
     }
 
-  
-
     $scope.trustSrc = function(src){
         return $sce.trustAsResourceUrl(src);
     }
@@ -86,33 +86,31 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
     var header_config = {
         headers: {
             'Content-Type' : 'application/json'
-        }
-    };
+    }};
 
     $scope.crearUsuario = function(){
 
-    var form_data = ({
-        rut : $scope.rutUs,
-        password : $scope.passwordUs,
-        nombre : $scope.nombreUs,
-        apellido : $scope.apellidoUs,
-        correo : $scope.correoUs
+        var form_data = ({
+           rut : $scope.rutUs,
+          password : $scope.passwordUs,
+          nombre : $scope.nombreUs,
+         apellido : $scope.apellidoUs,
+         correo : $scope.correoUs
     });
 
-    $http({
-        method : 'POST',
-        url : $scope.trustSrc("http://localhost:8080/usuarios/registrar"),
-        data : JSON.stringify(form_data),
-        config : header_config  
-    }).then(
-        function(response){
-            console.log(response);
+        $http({
+            method : 'POST',
+            url : $scope.trustSrc("http://localhost:8080/usuarios/registrar"),
+            data : JSON.stringify(form_data),
+            config : header_config  
+        }).then(function(response){
+            console.log(response)
             if(response.data){
                 $scope.mensaje = "Usuario registrado exitosamente";
                 $scope.mostrarMensaje = true;
             }
         },function(error){
-
+            console.log(error)
         });
     }
 
@@ -143,70 +141,56 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
             });
         }
 
-        $scope.actualizarDatos = function(){
+    $scope.actualizarDatos = function(){
 
-            var form_data = ({
-                idNombre : $scope.idNombreBanco,
-                cae : $scope.cae,
-                tasaInteresMensual : $scope.tasaInteresMensual,
-                gastosAsociados : $scope.gastosAsociados
-            });
+        var form_data = ({
+            idNombre : $scope.idNombreBanco,
+            cae : $scope.cae,
+            tasaInteresMensual : $scope.tasaInteresMensual,
+            gastosAsociados : $scope.gastosAsociados
+        });
     
-            //METODO PUT PARA ACTUALIZAR CAE, TASA INTERES Y GASTOS ASOCIADOS SEGUN UN ID
-            $http({
-                method : 'PUT',
-                url : $scope.trustSrc("http://localhost:8080/bancos/setear"),
-                data : JSON.stringify(form_data),
-                config : header_config  
-            }).then(
-                function(response){
-                    console.log(response);
-                    if(response.data){
-                        $scope.mensaje2 = "Datos actualizados correctamente";
-                        $scope.mostrarMensaje2 = true;
-                        console.log($scope.cae);
-                        console.log($scope.gastosAsociados);
-                        console.log($scope.tasaInteresMensual)
-                        console.log($scope.idNombre);
-                        
+        //METODO PUT PARA ACTUALIZAR CAE, TASA INTERES Y GASTOS ASOCIADOS SEGUN UN ID
+        $http({
+            method : 'PUT',
+            url : $scope.trustSrc("http://localhost:8080/bancos/setear"),
+            data : JSON.stringify(form_data),
+            config : header_config  
+        }).then(function(response){
+                console.log(response);
+                if(response.data){
+                    $scope.mensaje2 = "Datos actualizados correctamente";
+                    $scope.mostrarMensaje2 = true;
                     }
-                    
-    
-                },function(error){
-                    console.log(error);
-    
+        },function(error){
+                console.log(error);
                 });
         }
 
-        $scope.crearBanco = function(){
+    $scope.crearBanco = function(){
 
-            var form_data = ({
-                idNombre : $scope.idNombreCREAR,
-                cae : $scope.caeCREAR,
-                tasaInteresMensual : $scope.tasaInteresMensualCREAR,
-                gastosAsociados : $scope.gastosAsociadosCREAR
-            });
+        var form_data = ({
+            idNombre : $scope.idNombreCREAR,
+            cae : $scope.caeCREAR,
+            tasaInteresMensual : $scope.tasaInteresMensualCREAR,
+            gastosAsociados : $scope.gastosAsociadosCREAR
+        });
     
-            //METODO PUT PARA AÑADIR BANCO
-            $http({
-                method : 'PUT',
-                url : $scope.trustSrc("http://localhost:8080/bancos/add"),
-                data : JSON.stringify(form_data),
-                config : header_config  
-            }).then(
-                function(response){
-                    console.log(response);
-                    if(response.data){
-                        $scope.mensajeAdd = "Banco añadido exitosamente.";
-                        $scope.mostrarMensajeAdd = true;          
-                    }
-                    
-    
-                },function(error){
-                    console.log(error);
-    
-                });
-        }
+        //METODO PUT PARA AÑADIR BANCO
+        $http({
+            method : 'PUT',
+            url : $scope.trustSrc("http://localhost:8080/bancos/add"),
+            data : JSON.stringify(form_data),
+            config : header_config  
+        }).then(function(response){
+                console.log(response);
+                if(response.data){
+                    $scope.mensajeAdd = "Banco añadido exitosamente.";
+                    $scope.mostrarMensajeAdd = true;          
+                }
+        },function(error){
+                console.log(error)
+        })};
 
 
         $scope.eliminarUsuario = function(){
@@ -228,11 +212,9 @@ app.controller('ctrlAdministrador',function($scope,$http,$sce,$timeout){
                         $scope.mostrarMensajeDEL = true;
                     }
                 },function(error){
-        
-                });
-        }
-
-            
+                    console.log(error)
+                })}
+    
          $scope.logOut = function(){
               localStorage.clear();
         }

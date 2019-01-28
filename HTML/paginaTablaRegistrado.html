@@ -148,9 +148,15 @@
                 <p>Cada cuota cuesta: ${{cuotaMensual}}</p>
                 <p>Con un interes del {{tasaInteres}}% mensual</p>
                 <p>Al terminar de pagar, usted habra pagado un total de ${{totalIntereses}} en intereses, ademas de ${{gastosAsociados}} en gastos asociados.</p><br>
-                <p class="glyphicon glyphicon-star-empty"><strong>Esta simulacion se ha guardado en tu Historial.</strong ><div class="glyphicon glyphicon-star-empty"></div></p>
+              
             </div>
+            <div ng-show="mostrarBienvenida" class="alert alert-warning">
+                    <a ng-show="mostrarMensaje" class="close" data-dismiss="alert" aria-label="close" style="padding: 5px">&times;</a>
+                    <strong>Simulacion guardada en historial!</strong> <br>
+      
+                </div>
         </div>
+        
 
 
 

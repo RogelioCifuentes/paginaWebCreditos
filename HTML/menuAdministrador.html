@@ -8,21 +8,21 @@
     <link rel="stylesheet" type="text/css" href="../css/Estilos.css">
     <title>Admin home</title>
 </head>
-<body>
+<body ng-controller="ctrlAdministrador">
     <!--BARRA MENU PRINCIPAL-->
     <header>
         <div class ="container-fluid">
             <nav class="navbar navbar-inverse">               
-                <a class="navbar-brand">Panel de control Administrador: {{user.nombre}}</a>
+                <a class="navbar-brand">Admin: {{user.nombre}}</a>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-list-alt"></span> Ejecutivos</a></li>
+                    <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-sunglasses"></span> Ejecutivos</a></li>
                     <li><a href="pestañaUsuario.html"><span class="glyphicon glyphicon-wrench"></span> Configuracion</a></li>
                     <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out .</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-<div class="container" ng-controller="ctrlAdministrador">
+<div class="container">
     <h1 class="text-primary" style="font-size: 60px;text-align: center"><strong>Panel de Control</strong></h1><hr>
     
     <div class="row">

@@ -1,6 +1,6 @@
 var app = angular.module('AppRegistro',[])
 
-app.controller('ctrlRegistro',function($scope,$http,$sce){
+app.controller('ctrlRegistro',function($scope,$http,$sce,$timeout){
 
     $scope.trustSrc = function(src) {
         return $sce.trustAsResourceUrl(src);
@@ -8,7 +8,8 @@ app.controller('ctrlRegistro',function($scope,$http,$sce){
 
     $scope.mostrarError = false;
     $scope.mensaje = " ";
-
+    $scope.mostrarBievenida = false;
+    $scope.mostrarErrorPassword = false;
 
     var header_config = {
         headers: {
@@ -19,7 +20,9 @@ app.controller('ctrlRegistro',function($scope,$http,$sce){
    
     $scope.registrar = function(){
         if($scope.password != $scope.validacionPassword){
-            console.log("Las contraseñas no coinciden");
+            $scope.mostrarError = true;
+            $scope.mensaje = "Las password no coinciden."
+            return false;
         }
         if($scope.nombre==null){
             $scope.mostrarError=true;
@@ -63,9 +66,13 @@ app.controller('ctrlRegistro',function($scope,$http,$sce){
             config : header_config
         }).then(
             function(response){
-
+                //Condicion por si el usuario se equivoca de contraseña, se desvanezca a la hora de ponerla bien.
+                if($scope.mostrarErrorPassword=true){
+                    $scope.mostrarErrorPassword=false;
+                }
                 if(response.data){
-                    window.location.href="login.html"
+                    $scope.mostrarBienvenida=true;
+                    
                 }else{
                     $scope.mostrarError = true;
                     $scope.mensaje = "Rut o Correo actualmente en uso."

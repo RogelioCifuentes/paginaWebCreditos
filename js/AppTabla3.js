@@ -5,7 +5,7 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
     $scope.mostrarTabla = false;
     $scope.mostrarInformacionPersonalizada = false;
     $scope.user = JSON.parse(localStorage.getItem("user"));
-    
+    $scope.mostrarMensaje=false;
 
 
     $scope.trustSrc = function(src) {
@@ -43,6 +43,7 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
                 $scope.bancos = response.data;
                 if($scope.nombre != null && $scope.nombre!=''){
                     $scope.traerBanco();
+                   
                 }else{
                 $scope.generarTabla();
                 }              
@@ -93,9 +94,10 @@ app.controller('ctrlTabla', function($scope,$http,$sce,$log){
             $scope.totalIntereses = parseInt($scope.costoTotal - $scope.montoBrutoCredito);
                                     
             $scope.mostrarInformacionPersonalizada = true;
-
+            
+                   
             $scope.guardarRegistro();
-             
+            $scope.mostrarMensaje = true;
             }),function(error){
                 console.log(error)
             };
@@ -312,14 +314,6 @@ app.controller('ctrlTablaPersonalizada', function($scope,$http,$sce,$log){
             $scope.bancos[i].costoTotal = parseInt(($scope.bancos[i].cuota * NumCuotas) + $scope.bancos[i].gastosAsociados);
             //TOTAL DE INTERESES    
             $scope.bancos[i].totalIntereses = parseInt($scope.bancos[i].costoTotal - $scope.bancos[i].montoBrutoCredito);
-
-        
-            console.log($scope.numeroCuotas);
-            console.log(ti + "Tasa Interes");
-            console.log(primero + "Primero");
-            console.log(segundo+ "Segundo");
-            console.log($scope.bancos[i].tasaInteresMensual+" Tasa interes mensual");
-            console.log($scope.numeroCuotas+ " Numero de cuotas");
             
         }
 

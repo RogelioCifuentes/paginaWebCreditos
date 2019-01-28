@@ -17,16 +17,15 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                         <a class="navbar-brand glyphicon glyphicon-home" href="PortadaRegistrado.html"> Inicio</a>
-
-                <a class="navbar-brand"> Configuracion De Perfil</a>
                 </div>
+
                 <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="historialCreditos.html"><span class="glyphicon glyphicon-th-list"></span> Historial</a></li>
-                    <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-list-alt"></span> Ejecutivos</a></li>
-                    <li><a href="paginaTablaRegistrado.html"><span class="glyphicon glyphicon-usd"></span> Simular</a></li>
-                    <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out </a></li>
-                </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="historialCreditos.html"><span class="glyphicon glyphicon-th-list"></span> Historial</a></li>
+                        <li><a href="pestañaMuestraEjecutivos.html"><span class="glyphicon glyphicon-list-alt"></span> Ejecutivos</a></li>
+                        <li><a href="paginaTablaRegistrado.html"><span class="glyphicon glyphicon-usd"></span> Simular</a></li>
+                        <li ng-click="logOut()"><a href="Portada.html"><span class="glyphicon glyphicon-log-out"></span> Log out </a></li>
+                    </ul>
                 </div>
             </div>
         </nav>
@@ -34,8 +33,9 @@
     <br style="line-height:80px">
 
     <div class="container" style="background:rgba(0, 0, 0, 0.5);width: 30%;border-radius: 15px;border:2px solid;border-color:lightblue">
-                             <!--EDITAR USUARIO-->
-        <h1 style="color:white;font-size: 45px"><strong>Editar datos personales</strong></h1><hr>
+                             
+        <!--EDITAR USUARIO-->
+        <h1 style="color:white;font-size: 45px"><strong>Configuracion</strong></h1><hr>
                             <!--RUT-->
         <div class="row">
             <div class="input-group col-md-8">
@@ -58,20 +58,38 @@
                 <input type="password" class="form-control" placeholder="Nueva Password  **OPCIONAL**"   ng-model="nuevaPassword">
             </div>
         </div><br>
+
+        <div class="row">
+                <div class="input-group col-md-8">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                    <input type="password" class="form-control" placeholder="Repita Nueva Password"   ng-model="validacionNuevaPassword">
+                </div>
+            </div><br>
                          <!--CORREO-->
         <div class="row">
             <div class="input-group col-md-8">
                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                 <input  type="text" class="form-control" placeholder="Email **OPCIONAL**"  ng-model="correo">
             </div>
-        </div><hr>
-                                <!--BOTON PARA ACTUALIZAR-->
-        <button id="submit_btn" class="btn btn-primary btn-lg" ng-click="actualizarDatos()" >Actualizar</button> 
-        <div class="col-md-10 col-xs-offset-4" style="padding:20px;">     
-            <div class="bg-warning col-xs-4"  ng-show="mostrarMensaje">
-                {{mensaje}}
+        </div>
+        
+        <!--BOTON PARA ACTUALIZAR-->
+        
+        <div>
+            <br>
+            <button id="submit_btn" class="btn btn-primary btn-lg" ng-click="actualizarDatos()" >Actualizar</button> 
+            <div>
+            <br style="line-height:20px">
+            <div ng-show="mostrarCambiosExitosos" class="alert alert-success alert-dismissible fade in">    
+            <a href="#" class="close" data-dismiss="alert" aria-label="close" style="padding: 5px">&times;</a>
+            <strong>Datos actualizados!</strong> <br>
+        </div>
+        <hr>
+        <div class="alert alert-danger alert-dismissible fade in"  ng-show="mostrarMensajeValidacion">
+                <strong>{{mensaje}}</strong>
             </div>
         </div>
+    </div>
 
     </div>
 

@@ -5,6 +5,9 @@ app.controller('ctrlUsuario',function($scope,$http,$sce){
     $scope.mostrarMensaje = false;
     $scope.mensaje = "";
     $scope.user = JSON.parse(localStorage.getItem("user"));
+    $scope.mostrarMensajeValidacion = false;
+    $scope.mostrarCambiosExitosos = false;
+
     $scope.trustSrc = function(src){
         return $sce.trustAsResourceUrl(src);
     }
@@ -18,6 +21,11 @@ app.controller('ctrlUsuario',function($scope,$http,$sce){
 
     $scope.actualizarDatos = function(){
 
+        if ($scope.nuevaPassword != $scope.validacionNuevaPassword){
+            $scope.mostrarMensajeValidacion = true;
+            $scope.mensaje="Las contraseñas no coinciden."
+            return false;
+        }
         var form_data = ({
             rut : $scope.rut,
             correo : $scope.correo,
@@ -33,10 +41,7 @@ app.controller('ctrlUsuario',function($scope,$http,$sce){
             config : header_config  
         }).then(
             function(response){
-                console.log(response);
-                $scope.mostrarMensaje = true;
-                $scope.mensaje = "Datos actualizados.";
-               
+                $scope.mostrarCambiosExitosos = true;
             },function(error){
                 console.log(error);
             });

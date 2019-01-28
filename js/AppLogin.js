@@ -3,15 +3,12 @@ var app = angular.module('AppLogin', [])
 
 app.controller('ctrlLogin',function($scope,$http,$sce){
     $scope.user = JSON.parse(localStorage.getItem("user"));
-    $scope.rut = "";
-    $scope.password ="";
     $scope.mostrarError = false;
     $scope.mostrarErrorBANEADO = false;
     $scope.mostrarLogin = true;
     $scope.mensaje = "";
     $scope.botonInicio = true;
     $scope.botonRegistrarse = true;
-    $scope.mostrarBarraErrores = false;
     
     if($scope.user){
         window.location.href="paginaTablaRegistrado.html"
@@ -31,8 +28,8 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
         if($scope.rut=="" || $scope.rut==null || $scope.password==null || $scope.password==""){
             $scope.mensaje = "Ingrese datos";
             $scope.mostrarError = true;
-            $scope.mostrarBarraErrores = true;
-            return;
+            
+            return false;
 
         }else{
 
@@ -51,31 +48,24 @@ app.controller('ctrlLogin',function($scope,$http,$sce){
                 $scope.usuario = response.data
                 
                 if(response.data){
-                    
                     if($scope.usuario.activo!=1){
                         $scope.mostrarErrorBANEADO = true;
                         $scope.mensaje = "**USUARIO BANEADO**";
                         $scope.botonInicio = false;
                         $scope.botonRegistrarse = false;
-                        $scope.mostrarBarraErrores = true;
-                        localStorage.clear();
-                       
-                    return false;
+                        localStorage.clear();  
+                        return false;
                     }
-
                     if($scope.usuario.rol.idRol == 3){                           //Rol Usuario comun, redirige a la tabla de simulacion.
                     window.location.href='paginaTablaRegistrado.html'
                    
-                    
                     }else if($scope.usuario.rol.idRol == 2){                     //Rol Ejecutivo, redirige a nada en especial aun.
                     window.location.href='pagEjecutivos.html'
                     
                     }else if($scope.usuario.rol.idRol == 1){                     //Rol Admin, se redirige a su panel de control.
                     window.location.href='menuAdministrador.html'
                     }
-                    
                 }else{
-                    $scope.mostrarBarraErrores = true;
                     $scope.mostrarError = true;
                     $scope.mensaje = "Usuario y/o contraseña incorrectos."
                 }  

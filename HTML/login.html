@@ -17,53 +17,47 @@
             <nav  ng-show="botonRegistrarse" class="navbar navbar-inverse">
                 <div class="container-fluid">
                     <div class="navbar-header">
-                    <a class="navbar-brand glyphicon glyphicon-home" href="Portada.html"> Inicio</a>
+                        <a class="navbar-brand glyphicon glyphicon-home" href="Portada.html"> Bienvenido {{user.nombre}}</a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar" >
-                    <ul class="nav navbar-nav navbar-right">
+                        <ul class="nav navbar-nav navbar-right">
                         <li><a href="registro.html"><span class="glyphicon glyphicon-user"></span> Registrate</a></li>
-                    </ul>
+                        </ul>
                     </div>
                 </div>
             </nav> 
         </header>
-        <br style="line-height:130px"> 
+    <br style="line-height:130px"> 
                      <!-- Login -->
 <div class="container" ng-show ="mostrarLogin" align="center">
     <div class="container" style="background-color: rgba(0, 0, 0, 0.5);width:40%;border-radius: 15px;">
-    <h3 style="color:white;font-size:40px">Iniciar Sesion</h3><hr>
-        <!----- Informacion de login ------>
-        <!--RUT-->
+        <h3 style="color:white;font-size:40px">Iniciar Sesion</h3><hr>
+
+                        <!----- Informacion de login ------>
+                                    <!--RUT O CORREO-->
         <div class="input-group col-md-8">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
             <input type="text" class="form-control" placeholder="Rut o Correo" name="rut"   ng-model="rut" required="required" >                
         </div><br>
              
-        <!--PASSWORD-->
+                                <!--PASSWORD-->
         <div class="input-group col-md-8">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
             <input type="password" class="form-control" placeholder="Pass" name="password" ng-model="password" required="required">
         </div><hr>
 
 
-        <!--Mostrar La Barra de Errores , Solo si no se ingresa contraseÃ±a o el usario esta banneado -->
-        <div ng-show="mostrarBarraErrores">
                     <!--Mensaje de error-->
-            <div class="col-md-10 col-xs-offset-4" style="padding:20px;">
-                <div class="bg-warning col-xs-4"  ng-show="mostrarError" >
-                {{mensaje}} 
-                </div>
-            </div>
-            <div class="col-md-10 col-xs-offset-4" style="padding:20px;">
-                <div class="bg-warning col-xs-4 alert alert-danger"  ng-show="mostrarErrorBANEADO" >
-                {{mensaje}} 
-                </div>
-            </div>
+        <div class="alert alert-danger alert-dismissible fade in"  ng-show="mostrarError">
+            <strong>{{mensaje}}</strong> 
+        </div>
+        <div class="alert alert-danger alert-dismissible fade in"  ng-show="mostrarErrorBANEADO">
+                <strong>{{mensaje}}</strong> 
         </div>
 
-        <!----- Boton, con funcion login() ------>
+                        <!----- Boton, con funcion login() ------>
         <div> 
-        <button id="submit_btn" style="width:150px;" class="btn btn-primary" ng-click="login()" ng-show="botonInicio" >Iniciar</button>           
+            <button id="submit_btn" style="width:150px;" class="btn btn-primary" ng-click="login()" ng-show="botonInicio" >Iniciar</button>           
         </div><br>
     </div>
     
